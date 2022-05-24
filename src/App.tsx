@@ -1,5 +1,8 @@
 import React from 'react';
 import {TestInterface} from 'types';
+import {StartView} from "./components/StartView/StartView";
+
+import './App.css';
 
 export const App = () => {
   const foobar: TestInterface = {
@@ -7,6 +10,6 @@ export const App = () => {
   };
 
   return (
-    <p>Test</p>
+    <StartView/>
   );
 }
