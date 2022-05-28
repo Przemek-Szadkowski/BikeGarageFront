@@ -1,13 +1,11 @@
 import React, {useContext, useEffect, useState} from "react";
 import {SimpleBikeEntity} from 'types';
 import {OrderNoContext} from "../../contexts/orderNo.context";
-import {findAllByDisplayValue} from "@testing-library/react";
+import {Logo} from "../common/Logo/Logo";
+import {Loader} from "../common/Loader/Loader";
+import {BikeChat} from "../BikeChat/BikeChat";
 
 import './BikeInfo.css';
-import {log} from "util";
-import {Logo} from "../common/Logo/Logo";
-import {Footer} from "../Footer/Footer";
-import {Loader} from "../common/Loader/Loader";
 
 export const BikeInfo = () => {
 
@@ -56,27 +54,28 @@ export const BikeInfo = () => {
                 <div className="bike-part">
                     {<Logo/>}
                     <div className="information">
-                        <div><p>{bike.orderNo}</p></div>
+                        <div><p><span className="info">Nr zlecenia </span>{bike.orderNo}</p></div>
                         <div className="model">
                             <p>
-                                {bike.bikeModel}<br/>
-                                {bike.serialNo}
+                                <span className="info">Rower </span> {bike.bikeModel}<br/>
+                                <span className="info">Nr seryjny ramy</span> {bike.serialNo}
                             </p>
                         </div>
-                        <div className="status"><p>{bike.status}</p></div>
-                        <div><p>{(String(bike.dateOfReception).split('T')[0])}</p></div>
+                        <div className="status"><p><span className="info">Status</span> {bike.status}</p></div>
+                        <div><p><span className="info">Data przyjęcia</span> {(String(bike.dateOfReception).split('T')[0])}</p></div>
                         <div className="owner">
                             <p>
-                                {bike.name} {bike.surname}<br/>
-                                {bike.phoneNo}
+                                <span className="info">Właściciel</span> {bike.name} {bike.surname}<br/>
+                                <span className="info">Nr telefonu</span> {bike.phoneNo}
                             </p>
                         </div>
-                        <div><p>{bike.downPayment}</p></div>
-                        <div className="comments"><p>{bike.comments}</p></div>
+                        <div><p><span className="info">Zaliczka</span> {bike.downPayment} zł</p></div>
+                        <div className="comments"><p><span className="info">Uwagi</span> {bike.comments}</p></div>
                     </div>
-                    <Footer/>
                 </div>
-                <div className="bike-conversation"></div>
+                <div className="bike-conversation">
+                    <BikeChat/>
+                </div>
             </div>
         </>
 )
