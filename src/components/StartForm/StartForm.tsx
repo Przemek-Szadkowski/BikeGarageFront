@@ -1,17 +1,20 @@
 import React, {SyntheticEvent, useContext, useState} from "react";
 import {Btn} from "../common/Btn/Btn";
 import {OrderNoContext} from "../../contexts/orderNo.context";
+import { useNavigate } from 'react-router-dom';
 
 import './StartForm.css';
 
 export const StartForm = () => {
+    let navigate = useNavigate();
     const {orderNo, setOrderNo} = useContext(OrderNoContext);
     const [inputVal, setInputVal] = useState(orderNo);
 
     const setOrderNoFromLocalState = (e: SyntheticEvent) => {
         e.preventDefault();
         setOrderNo(inputVal);
-    };
+        navigate(`/bike/${inputVal}`);
+    }
 
   return (
       <div>
@@ -26,7 +29,6 @@ export const StartForm = () => {
               {/*    <input type="password"/>*/}
               {/*</label>*/}
               <Btn text="Wyświetl"/>
-              {/*<Btn text="Wyświetl" to="/bikeinfo"/>*/}
           </form>
       </div>
   );

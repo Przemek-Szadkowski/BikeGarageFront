@@ -1,7 +1,6 @@
 .main-form {
     width: 60vw;
     height: 550px;
-    background-color: #232323;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -10,12 +9,19 @@
     text-align: center;
 }
 
+.main-form label {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
 .main-form input {
     width: 25vw;
-    height: 35px;
+    height: 45px;
     margin-bottom: 40px;
     margin-top: 20px;
     background-color: #888;
     color: #111;
+    font-size: 1.2rem;
     font-weight: bold;
+    text-align: center;
 }

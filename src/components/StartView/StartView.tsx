@@ -1,22 +1,19 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import { Logo } from "../common/Logo/Logo";
 import { StartForm } from "../StartForm/StartForm";
 import { Footer } from "../Footer/Footer";
-import {BikeInfo} from "../BikeInfo/BikeInfo";
-import {OrderNoContext} from '../../contexts/orderNo.context';
+import {OrderNoContext} from "../../contexts/orderNo.context";
 
 import './StartView.css';
 
 export const StartView =  () => {
-    const [orderNo, setOrderNo] = useState('');
+    const {orderNo} = useContext(OrderNoContext);
 
     return (
             <main className="start-view">
-                <OrderNoContext.Provider value={{orderNo, setOrderNo}}>
                 <Logo/>
-                    {orderNo ? <BikeInfo/> : <StartForm/>}
+                   <StartForm/>
                 <Footer/>
-                </OrderNoContext.Provider>
             </main>
     );
 };
