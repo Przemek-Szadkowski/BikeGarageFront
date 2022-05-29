@@ -23,6 +23,7 @@ export const BikeInfo = () => {
         downPayment: 0.00,
         status: '',
         comments: '',
+        chat: [],
     });
 
     useEffect(() => {
@@ -74,7 +75,7 @@ export const BikeInfo = () => {
                     </div>
                 </div>
                 <div className="bike-conversation">
-                    <BikeChat/>
+                    <BikeChat chat={bike.chat}/>
                 </div>
             </div>
         </>

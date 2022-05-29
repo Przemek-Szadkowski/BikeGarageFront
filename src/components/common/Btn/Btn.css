@@ -6,9 +6,9 @@
     font-weight: bold;
     text-transform: uppercase;
     border-radius: 42px;
-    background: #343437;
-    box-shadow: inset 7px 7px 15px #2d2d30,
-    inset -7px -7px 15px #3b3b3e;
+    background: #1b1b1c;
+    box-shadow: inset 7px 7px 15px #232325,
+    inset -7px -7px 15px #2a2a2c;
     transition: .5s;
 }
 
