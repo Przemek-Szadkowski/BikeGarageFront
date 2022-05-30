@@ -35,7 +35,7 @@ export const BikeInfo = () => {
             setBike(data);
             setIsLoading(false);
         })();
-    }, []);
+    }, [orderNo]);
 
     if(isLoading) {
         return (
