@@ -4,6 +4,7 @@ import {OrderNoContext} from "../../contexts/orderNo.context";
 import {Logo} from "../common/Logo/Logo";
 import {Loader} from "../common/Loader/Loader";
 import {BikeChat} from "../BikeChat/BikeChat";
+import {BikeErrorView} from "../BikeErrorView/BikeErrorView";
 
 import './BikeInfo.css';
 
@@ -43,9 +44,9 @@ export const BikeInfo = () => {
         )
     }
 
-    if(!bike) {
+    if(!bike.id) {
         return (
-            <p>Cannot get a bike!</p>
+            <BikeErrorView/>
         )
     }
 

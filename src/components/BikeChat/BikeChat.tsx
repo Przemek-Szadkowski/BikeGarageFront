@@ -1,4 +1,4 @@
-import React, {SyntheticEvent, useContext, useEffect, useState} from "react";
+import React, {SyntheticEvent, useContext, useEffect, useRef, useState} from "react";
 import {Footer} from "../Footer/Footer";
 import {MessageEntity} from 'types';
 import {OrderNoContext} from "../../contexts/orderNo.context";
@@ -13,6 +13,8 @@ interface Props {
 }
 
 export const BikeChat = (props: Props) => {
+
+    const chatForm = useRef(null);
 
     const {orderNo} = useContext(OrderNoContext);
     const [isLoading, setIsLoading] = useState(false);
@@ -57,10 +59,23 @@ export const BikeChat = (props: Props) => {
       <>
           <div className="chat-view">
               <div className="chat-info">
-                  <form onSubmit={sendMessage}>
+                  <form ref={chatForm} onSubmit={sendMessage}>
                       <label>
                           Pytania o rower? Pisz śmiało!<br/>
-                          <textarea value={textAreaVal} onChange={e => setTextAreaVal(e.target.value)}></textarea>
+                          <textarea
+                              value={textAreaVal}
+                              onChange={e => setTextAreaVal(e.target.value)}
+                              onKeyPress={(e) => {
+                                  // stop making new line on enter in textarea and sendMessage on enter press???
+                                  if(e.key === 'Enter' && !e.shiftKey){
+                                      e.preventDefault();
+                                  }
+                                  if(e.key === 'Enter') {
+                                      sendMessage(e);
+                                  }
+                              }}
+                          >
+                          </textarea>
                       </label>
                       <button className="send-btn">Wyślij</button>
                   </form>
