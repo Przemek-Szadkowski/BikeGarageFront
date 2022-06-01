@@ -1,0 +1,40 @@
+.admin-login {
+    width: 100%;
+    height: 100vh;
+    background-color: #0B0B0C;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.admin-login form {
+    height: 590px;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.admin-login form label {
+    text-transform: uppercase;
+}
+
+.admin-login form input {
+    width: 30vw;
+    height: 60px;
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    color: #E55E04;
+    text-shadow: 2px 2px 0 #0B0B0C;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 50px;
+    border-style: none;
+    background: #1e1e1f;
+    box-shadow: inset 18px 18px 16px #1a1a1b,
+    inset -18px -18px 16px #222223;
+}
