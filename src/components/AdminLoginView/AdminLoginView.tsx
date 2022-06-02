@@ -22,6 +22,7 @@ export const AdminLoginView = () => {
             <div className="admin-login">
                 <Logo/>
                 <form action="" onSubmit={submitLogin}>
+                    <p>Na tym roucie będzie możliwość zalogowania do panelu admina, gdy już będę wiedział, jak to dobrze zrobić :)</p>
                     <label>
                         Login:
                         <input type="text" value={loginVal} onChange={e => setLoginVal(e.target.value)}/>

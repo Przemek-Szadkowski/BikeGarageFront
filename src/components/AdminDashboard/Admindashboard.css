@@ -3,7 +3,58 @@
     height: 100vh;
     background-color: #0B0B0C;
     display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.admin-aside, .admin-main, .admin-orders, .admin-current, .admin-controls, .admin-current-order, .admin-chat {
+    height: 90vh;
+    border: 3px solid #E55E04;
+    border-radius: 25px;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.admin-aside {
+    width: 25%;
+    margin-right: 20px;
+}
+
+.admin-main {
+    width: 65%;
+}
+
+.admin-orders {
+    width: 90%;
+    height: 70%;
+}
+
+.admin-current {
+    height: 80%;
+    width: 95%;
+    flex-direction: row;
+}
+
+.admin-controls {
+    height: 10%;
+    width: 95%;
+    margin-top: 20px;
+    flex-direction: row;
+}
+
+.admin-controls p {
+    margin-left: 50px;
+}
+
+.admin-current-order {
+    height: 95%;
+    width: 65%;
+}
+
+.admin-chat {
+    height: 95%;
+    width: 30%;
+    margin-left: 20px;
 }
