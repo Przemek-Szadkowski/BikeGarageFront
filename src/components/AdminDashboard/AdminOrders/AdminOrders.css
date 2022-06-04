@@ -1,0 +1,18 @@
+.admin-orders {
+    width: 90%;
+    height: 70%;
+    border: 3px solid #E55E04;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    /*prevent from showing scrollbar*/
+    overflow: scroll;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+.admin-orders::-webkit-scrollbar {
+    display: none; /* Chrome, Opera */
+}

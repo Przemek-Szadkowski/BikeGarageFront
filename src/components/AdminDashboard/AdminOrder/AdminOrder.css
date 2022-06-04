@@ -1,0 +1,14 @@
+.order-bike {
+    width: 90%;
+    margin: 10px 0;
+    border: 2px solid #E55E04;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.order-bike p {
+    padding: 2px 0;
+}
