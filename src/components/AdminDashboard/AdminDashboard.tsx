@@ -1,16 +1,32 @@
-import React from "react";
+import React, {useContext, useEffect, useState} from "react";
+import { SimpleBikeEntity } from "types";
 import {Logo} from "../common/Logo/Logo";
+import {Loader} from "../common/Loader/Loader";
+import {AdminOrders} from "./AdminOrders/AdminOrders";
 
 import './Admindashboard.css';
 
 export const AdminDashboard = () => {
+
+    const [isLoading, setIsLoading] = useState(false);
+    const [bikes, setBikes] = useState<SimpleBikeEntity[]>([]);
+
+    useEffect(() => {
+        (async () => {
+            setIsLoading(true);
+            const res = await fetch(`http://localhost:3001/admin/dashboard`);
+            const data = await res.json();
+            setBikes(data);
+            console.log(data);
+            setIsLoading(false);
+        })();
+    }, []);
+
   return (
       <div className="admin-wrapper">
         <div className="admin-aside">
           <Logo/>
-          <div className="admin-orders">
-            <p>Zlecenia</p>
-          </div>
+            { isLoading ? <Loader/> : <AdminOrders bikes={bikes}/>}
         </div>
         <div className="admin-main">
           <div className="admin-current">
