@@ -12,8 +12,10 @@ export const StartForm = () => {
 
     const setOrderNoFromLocalState = (e: SyntheticEvent) => {
         e.preventDefault();
-        setOrderNo(inputVal);
-        navigate(`/bike/${inputVal}`);
+        if(inputVal) {
+            setOrderNo(inputVal);
+            navigate(`/bike/${inputVal}`);
+        }
     }
 
   return (
