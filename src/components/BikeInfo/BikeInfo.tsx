@@ -40,7 +40,11 @@ export const BikeInfo = () => {
 
     if(isLoading) {
         return (
-            <Loader/>
+            <>
+            <div className="bike-loader-wrapper">
+                <Loader/>
+            </div>
+            </>
         )
     }
 

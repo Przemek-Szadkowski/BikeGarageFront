@@ -5,11 +5,11 @@ import {OrderNoContext} from "../../contexts/orderNo.context";
 import {Loader} from "../common/Loader/Loader";
 
 import './BikeChat.css';
-import {Btn} from "../common/Btn/Btn";
 
 interface Props {
     // why any? only this type is correct? MessageEntity does work?
     chat: MessageEntity[];
+    orderNo?: string;
 }
 
 export const BikeChat = (props: Props) => {
@@ -21,12 +21,19 @@ export const BikeChat = (props: Props) => {
     const [textAreaVal, setTextAreaVal] = useState('');
     const [chatMessages, setChatMessages] = useState(props.chat);
 
+    useEffect(() => {
+        (async () => {
+            setChatMessages(props.chat);
+        })();
+    }, [props.chat]);
+
+
     const sendMessage = async (e: SyntheticEvent) => {
         e.preventDefault();
         setIsLoading(true);
 
         try {
-            const addMessage = await fetch(`http://localhost:3001/bike/${orderNo}`, {
+            const addMessage = await fetch(`http://localhost:3001/bike/${orderNo ? orderNo : props.orderNo}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

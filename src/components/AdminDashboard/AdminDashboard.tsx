@@ -4,6 +4,7 @@ import {Logo} from "../common/Logo/Logo";
 import {Loader} from "../common/Loader/Loader";
 import {AdminOrders} from "./AdminOrders/AdminOrders";
 import {AdminCurrentBike} from "./AdminCurrentBike/AdminCurrentBike";
+import {BikeChat} from "../BikeChat/BikeChat";
 
 import './Admindashboard.css';
 
@@ -33,8 +34,8 @@ export const AdminDashboard = () => {
             const res = await fetch(`http://localhost:3001/admin/dashboard`);
             const data = await res.json();
             setBikes(data);
+            console.log(data);
             setCurrentBike(data[0]);
-            console.log(currentBike)
             setIsLoading(false);
         })();
     }, []);
@@ -47,9 +48,9 @@ export const AdminDashboard = () => {
             </div>
             <div className="admin-main">
               <div className="admin-current">
-                  <AdminCurrentBike currentBike={currentBike}/>
+                  {isLoading ? <Loader/> : <AdminCurrentBike currentBike={currentBike}/>}
                 <div className="admin-chat">
-                  <p>Chat</p>
+                  <BikeChat chat={currentBike.chat} orderNo={currentBike.orderNo}/>
                 </div>
               </div>
               <div className="admin-controls">

@@ -1,0 +1,10 @@
+.admin-current-order {
+    height: 95%;
+    width: 65%;
+    border: 3px solid #E55E04;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
