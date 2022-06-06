@@ -80,7 +80,7 @@ export const BikeInfo = () => {
                     </div>
                 </div>
                 <div className="bike-conversation">
-                    <BikeChat chat={bike.chat}/>
+                    <BikeChat chat={bike.chat} clientSide={true}/>
                 </div>
             </div>
         </>

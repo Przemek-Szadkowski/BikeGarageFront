@@ -7,9 +7,8 @@
     align-items: center;
 }
 
-.admin-aside, .admin-main, .admin-current, .admin-controls, .admin-chat {
-    height: 90vh;
-    border: 3px solid #E55E04;
+.admin-aside, .admin-main, .admin-current, .admin-controls {
+    height: 95vh;
     border-radius: 25px;
     display: flex;
     flex-direction: column;
@@ -24,11 +23,12 @@
 
 .admin-main {
     width: 65%;
+    align-items: stretch;
 }
 
 .admin-current {
     height: 80%;
-    width: 95%;
+    width: 100%;
     flex-direction: row;
 }
 
@@ -44,7 +44,11 @@
 }
 
 .admin-chat {
-    height: 95%;
-    width: 30%;
+    height: 100%;
+    width: 40%;
     margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

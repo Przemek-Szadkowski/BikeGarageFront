@@ -2,7 +2,7 @@
     width: 90%;
     margin: 10px 0;
     padding: 10px 0;
-    border: 2px solid #E55E04;
+    /*border: 2px solid #E55E04;*/
     border-radius: 25px;
     display: flex;
     flex-direction: column;
@@ -10,12 +10,33 @@
     align-items: center;
     cursor: pointer;
     transition: .5s;
+    background: #282828;
+    box-shadow: inset 18px 18px 36px #1e1e1e,
+    inset -18px -18px 36px #343434;
 }
 
 .order-bike:hover {
-    background-color: #181818;
+    box-shadow: inset 30px 30px 48px #1e1e1e,
+    inset -30px -30px 48px #343434;
+    text-shadow: 2px 2px 2px #0c0c0c;
+    filter: drop-shadow(0 0 2px #E55E04);
 }
 
 .order-bike p {
     padding: 2px 0;
+}
+
+.order-date {
+    color: #aaa;
+    font-weight: bold;
+}
+
+.order-model {
+    color: #ad8165;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.order-owner {
+    color: #45E1E6;
 }

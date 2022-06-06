@@ -9,6 +9,7 @@ import './BikeChat.css';
 interface Props {
     // why any? only this type is correct? MessageEntity does work?
     chat: MessageEntity[];
+    clientSide: boolean;
     orderNo?: string;
 }
 
@@ -33,18 +34,19 @@ export const BikeChat = (props: Props) => {
         setIsLoading(true);
 
         try {
-            const addMessage = await fetch(`http://localhost:3001/bike/${orderNo ? orderNo : props.orderNo}`, {
+            const addMessage = await fetch(`http://localhost:3001/bike/${props.orderNo ? props.orderNo : orderNo}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    isClientAsk: 1,
+                    isClientAsk: props.clientSide ? 1 : 0,
                     isNew: 1,
                     textAreaVal,
                     orderNo,
                 }),
             });
+
 
             const data = await addMessage.json();
             setChatMessages(data);
@@ -68,7 +70,7 @@ export const BikeChat = (props: Props) => {
               <div className="chat-info">
                   <form ref={chatForm} onSubmit={sendMessage}>
                       <label>
-                          Pytania o rower? Pisz śmiało!<br/>
+                          {props.clientSide ? 'Pytania o rower? Pisz śmiało!' : 'Chat'}<br/>
                           <textarea
                               value={textAreaVal}
                               onChange={e => setTextAreaVal(e.target.value)}

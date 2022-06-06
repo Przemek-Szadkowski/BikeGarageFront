@@ -1,7 +1,8 @@
 .chat-view {
-    width: 80%;
-    height: 80vh;
-    border-radius: 50px;
+    width: 100%;
+    height: 70vh;
+    max-height: 70vh;
+    border-radius: 25px;
     background: #1e1e1f;
     box-shadow: inset 18px 18px 16px #1a1a1b,
     inset -18px -18px 16px #222223;
@@ -13,42 +14,41 @@
 
 .chat-info {
     width: 85%;
-    height: 25%;
-    border-radius: 50px;
+    height: 30%;
+    border-radius: 25px;
     background: #222222;
     box-shadow: inset 18px 18px 36px #1b1b1b,
     inset -18px -18px 36px #292929;
     margin-bottom: 15px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: stretch;
     align-items: center;
 }
 
 .chat-info form {
     width: 90%;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: stretch;
 }
 
 .chat-info label {
     text-align: center;
-    /*text-transform: uppercase;*/
 }
 
 .chat-info textarea{
     width: 100%;
-    height: 70%;
-    margin-bottom: 40px;
-    margin-top: 20px;
+    height: 80px;
+    margin-top: 10px;
     color: #101010;
     font-size: .8rem;
     font-weight: bold;
     text-align: center;
     border-style: none;
-    border-radius: 50px;
+    border-radius: 25px;
     background: #505053;
     box-shadow: inset 8px 8px 16px #3a3a3d,
     inset -8px -8px 16px #666669;
@@ -58,8 +58,8 @@
 
 .chat-chat {
     width: 85%;
-    height: 65%;
-    border-radius: 50px;
+    height: 60%;
+    border-radius: 25px;
     background: #292929;
     box-shadow: inset 18px 18px 36px #1e1e1e,
     inset -18px -18px 36px #343434;
@@ -92,11 +92,9 @@
     margin: 0 auto;
     margin-top: 10px;
     font-size: .7rem;
-    font-weight: normal;
     padding: 5px;
     transition: .5s;
     background-color: #505053;
     box-shadow: inset 7px 7px 15px #3d3d41,
     inset -7px -7px 15px #3c3c3f;
-;
 }

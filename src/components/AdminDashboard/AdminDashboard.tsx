@@ -34,11 +34,11 @@ export const AdminDashboard = () => {
             const res = await fetch(`http://localhost:3001/admin/dashboard`);
             const data = await res.json();
             setBikes(data);
-            console.log(data);
             setCurrentBike(data[0]);
             setIsLoading(false);
         })();
     }, []);
+
 
   return (
           <div className="admin-wrapper">
@@ -50,7 +50,7 @@ export const AdminDashboard = () => {
               <div className="admin-current">
                   {isLoading ? <Loader/> : <AdminCurrentBike currentBike={currentBike}/>}
                 <div className="admin-chat">
-                  <BikeChat chat={currentBike.chat} orderNo={currentBike.orderNo}/>
+                  <BikeChat chat={currentBike.chat} orderNo={currentBike.orderNo} clientSide={false}/>
                 </div>
               </div>
               <div className="admin-controls">

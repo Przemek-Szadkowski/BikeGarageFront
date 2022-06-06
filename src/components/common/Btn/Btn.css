@@ -5,6 +5,7 @@
     font-size: 1.1rem;
     font-weight: bold;
     text-transform: uppercase;
+    border-color: #E55E04;
     border-radius: 42px;
     background: #1b1b1c;
     box-shadow: inset 7px 7px 15px #232325,
@@ -17,5 +18,5 @@
     border-radius: 42px;
     transform: scale(1.03);
     background: #2b2b2d;
-    box-shadow: 0 0 5px #E55E04;
+    box-shadow: 0 0 5px #45E1E6;
 }

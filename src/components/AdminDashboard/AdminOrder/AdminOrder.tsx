@@ -12,12 +12,10 @@ export const AdminOrder = ({bikeInfo, setCurrentBike}: Props) => {
     return (
         <>
             <div className="order-bike" onClick={() => setCurrentBike(bikeInfo)}>
-                <p>{(String(bikeInfo.dateOfReception).split('T')[0])}</p>
-                <p>{bikeInfo.orderNo}</p>
-                <p>{bikeInfo.bikeModel}</p>
-                <p>{bikeInfo.serialNo}</p>
-                <p>{bikeInfo.name} {bikeInfo.surname}</p>
-                <p>{bikeInfo.phoneNo}</p>
+                <p className="order-date">{(String(bikeInfo.dateOfReception).split('T')[0])}</p>
+                <p>No. {bikeInfo.orderNo}</p>
+                <p className="order-model">{bikeInfo.bikeModel}</p>
+                <p className="order-owner">{bikeInfo.name} {bikeInfo.surname}</p>
             </div>
         </>
 
