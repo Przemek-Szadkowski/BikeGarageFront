@@ -77,15 +77,6 @@
     display: none; /* Chrome, Opera */
 }
 
-.chat-chat p {
-    padding: 10px 35px;
-}
-
-.client-ask {
-    color: #666669;
-    margin-bottom: 5px;
-}
-
 .send-btn {
     height: 20%;
     width: 60%;

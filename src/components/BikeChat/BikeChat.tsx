@@ -5,6 +5,7 @@ import {OrderNoContext} from "../../contexts/orderNo.context";
 import {Loader} from "../common/Loader/Loader";
 
 import './BikeChat.css';
+import {BikeChatLine} from "./BikeChatLine/BikeChatLine";
 
 interface Props {
     // why any? only this type is correct? MessageEntity does work?
@@ -90,7 +91,7 @@ export const BikeChat = (props: Props) => {
                   </form>
               </div>
               <div className="chat-chat">
-                  {chatMessages ? chatMessages.map(msg => <p key={msg.id} className={msg.isClientAsk === 1 ? 'client-ask' : ''}>{msg.text}</p>) : ''}
+                  {chatMessages ? chatMessages.map(msg => <BikeChatLine msg={msg}/>) : ''}
               </div>
           </div>
           <Footer/>
