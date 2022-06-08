@@ -91,7 +91,7 @@ export const BikeChat = (props: Props) => {
                   </form>
               </div>
               <div className="chat-chat">
-                  {chatMessages ? chatMessages.map(msg => <BikeChatLine msg={msg}/>) : ''}
+                  {chatMessages ? chatMessages.map(msg => <BikeChatLine key={msg.id} msg={msg}/>) : ''}
               </div>
           </div>
           <Footer/>

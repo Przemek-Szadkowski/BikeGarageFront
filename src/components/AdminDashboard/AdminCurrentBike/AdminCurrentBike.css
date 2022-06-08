@@ -1,7 +1,13 @@
+form {
+    width: 60%;
+    height: 100%;
+}
+
 .admin-current-order {
     height: 100%;
-    width: 60%;
+    width: 100%;
     /*border: 2px solid #45E1E6;*/
+    /*border: 2px dotted #999;*/
     border-radius: 25px;
     /*display: flex;*/
     /*flex-direction: column;*/
@@ -9,7 +15,7 @@
     /*align-items: center;*/
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(7, 1fr);
+    grid-template-rows: repeat(8, 1fr);
     align-items: center;
     padding: 20px;
 }
@@ -68,12 +74,8 @@ p.admin-current-dateOfReception {
     color: #E55E04;
 }
 
-.admin-current-status {
-    grid-area: 4/1/5/3;
-}
-
 .admin-current-comments {
-    grid-area: 4/3/5/6;
+    grid-area: 4/1/5/6;
     align-self: stretch;
     background-color: rgba(229, 94, 4 ,.2);
 }
@@ -83,42 +85,81 @@ p.admin-current-comments {
 }
 
 .admin-current-name {
-    grid-area: 5/1/6/3;
+    grid-area: 6/1/7/2;
+    justify-self: flex-start;
+}
+
+p.admin-current-name {
+    color: #45E1E6;
+    text-transform: uppercase;
 }
 
 .admin-current-surname {
-    grid-area: 5/3/6/6;
+    justify-self: flex-start;
+    grid-area: 6/2/7/6;
+}
+
+p.admin-current-surname {
+    color: #45E1E6;
+    text-transform: uppercase;
 }
 
 .admin-current-phoneNo {
-    grid-area: 6/1/7/3;
+    grid-area: 7/1/8/3;
+    justify-self: flex-start;
+    border: 2px dotted #999;
+}
+
+p.admin-current-phoneNo {
+    padding: 5px 20px;
+    color: #45E1E6;
 }
 
 .admin-current-downPayment {
-    grid-area: 6/4/7/6;
+    grid-area: 7/4/8/6;
+}
+
+.admin-current-downPayment span {
+    margin-left: 10px;
 }
 
 .editForm {
     width: 100%;
     height: 100%;
-    grid-area: 7/1/8/6;
-}
-
-.editForm form {
-    width: 100%;
-    height: 100%;
+    grid-area: 8/1/9/6;
     display: flex;
     justify-content: flex-start;
     align-items: center;
 }
 
-.editForm form button {
+.editForm button {
     height: 30px;
     font-size: .7rem;
     margin: 0 20px;
-    border-color: #45E1E6;
 }
 
-.editForm form button:last-of-type {
+.editForm button:last-of-type {
     color: #d01a1a;
+}
+
+.admin-current-status {
+    grid-area: 5/1/6/6;
+    height: 30px;
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 5px;
+    border-radius: 8px;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    color: #371C0B;
+    background-color: #E55E04;
+    border: 2px dotted #999;
+}
+
+.admin-current-status select option {
+    color: #371C0B;
 }
