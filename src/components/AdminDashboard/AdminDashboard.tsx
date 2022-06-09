@@ -48,7 +48,7 @@ export const AdminDashboard = () => {
             </div>
             <div className="admin-main">
               <div className="admin-current">
-                  {isLoading ? <Loader/> : <AdminCurrentBike currentBike={currentBike}/>}
+                  {isLoading ? <Loader/> : <AdminCurrentBike currentBike={currentBike} setCurrentBike={setCurrentBike} setBikes={setBikes}/>}
                 <div className="admin-chat">
                   <BikeChat chat={currentBike.chat} orderNo={currentBike.orderNo} clientSide={false}/>
                 </div>

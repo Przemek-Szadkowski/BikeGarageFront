@@ -141,25 +141,3 @@ p.admin-current-phoneNo {
 .editForm button:last-of-type {
     color: #d01a1a;
 }
-
-.admin-current-status {
-    grid-area: 5/1/6/6;
-    height: 30px;
-    width: 80%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 5px;
-    border-radius: 8px;
-    text-transform: uppercase;
-    text-align: center;
-    font-weight: bold;
-    color: #371C0B;
-    background-color: #E55E04;
-    border: 2px dotted #999;
-}
-
-.admin-current-status select option {
-    color: #371C0B;
-}

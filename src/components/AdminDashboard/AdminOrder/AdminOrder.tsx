@@ -16,6 +16,7 @@ export const AdminOrder = ({bikeInfo, setCurrentBike}: Props) => {
                 <p>No. {bikeInfo.orderNo}</p>
                 <p className="order-model">{bikeInfo.bikeModel}</p>
                 <p className="order-owner">{bikeInfo.name} {bikeInfo.surname}</p>
+                <p className="order-status">{bikeInfo.status}</p>
             </div>
         </>
 
