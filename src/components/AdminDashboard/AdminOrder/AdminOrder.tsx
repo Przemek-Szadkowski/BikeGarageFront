@@ -13,7 +13,7 @@ export const AdminOrder = ({bikeInfo, setCurrentBike}: Props) => {
         <>
             <div className="order-bike" onClick={() => setCurrentBike(bikeInfo)}>
                 <p className="order-date">{(String(bikeInfo.dateOfReception).split('T')[0])}</p>
-                <p>No. {bikeInfo.orderNo}</p>
+                <p>NO. {bikeInfo.orderNo}</p>
                 <p className="order-model">{bikeInfo.bikeModel}</p>
                 <p className="order-owner">{bikeInfo.name} {bikeInfo.surname}</p>
                 <p className="order-status">{bikeInfo.status}</p>

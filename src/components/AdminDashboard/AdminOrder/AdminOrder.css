@@ -24,6 +24,7 @@
 
 .order-bike p {
     padding: 2px 0;
+    margin-bottom: 5px;
 }
 
 .order-date {
@@ -38,5 +39,17 @@
 }
 
 .order-owner {
-    color: #45E1E6;
+    color: #13A6ED;
+    text-transform: uppercase;
+}
+
+.order-status {
+    width: 80%;
+    margin-top: 3px;
+    border-top: 2px dotted #ccc;
+    text-align: center;
+}
+
+p.order-status {
+    padding-top: 10px;
 }
