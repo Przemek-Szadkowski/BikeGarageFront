@@ -4,10 +4,8 @@ import {AdminLoginView} from "./components/AdminLoginView/AdminLoginView";
 import {AdminDashboard} from "./components/AdminDashboard/AdminDashboard";
 import {Route, Routes} from "react-router-dom";
 import {BikeInfo} from "./components/BikeInfo/BikeInfo";
+import {AddBikeForm} from "./components/AddBikeForm/AddBikeForm";
 import {OrderNoContext} from './contexts/orderNo.context';
-
-
-import './App.css';
 
 export const App = () => {
   const [orderNo, setOrderNo] = useState('');
@@ -19,6 +17,7 @@ export const App = () => {
             <Route path="/bike/:orderNo" element={<BikeInfo/>}/>
             <Route path="/admin" element={<AdminLoginView/>}/>
             <Route path="/admin/dashboard" element={<AdminDashboard/>}/>
+            <Route path="/addBike" element={<AddBikeForm/>}/>
         </Routes>
       </OrderNoContext.Provider>
   );

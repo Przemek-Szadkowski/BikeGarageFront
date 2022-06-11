@@ -1,4 +1,4 @@
-.btn, button {
+.btn, button, .link  {
     width: 30%;
     height: 55px;
     color: #E55E04;
@@ -13,7 +13,7 @@
     transition: .5s;
 }
 
-.btn:hover, button:hover {
+.btn:hover, button:hover, .link:hover {
     cursor: pointer;
     border-radius: 42px;
     transform: scale(1.03);
