@@ -5,14 +5,8 @@ form {
 
 .admin-current-order {
     height: 100%;
-    width: 100%;
-    /*border: 2px solid #45E1E6;*/
-    /*border: 2px dotted #999;*/
+    width: 70%;
     border-radius: 25px;
-    /*display: flex;*/
-    /*flex-direction: column;*/
-    /*justify-content: center;*/
-    /*align-items: center;*/
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(8, 1fr);

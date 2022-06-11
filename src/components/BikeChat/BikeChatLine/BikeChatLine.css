@@ -1,5 +1,6 @@
 .chat-chat p {
-    padding: 10px 35px;
+    padding: 10px 30px;
+    word-wrap: break-word;
 }
 
 .client-ask {

@@ -58,6 +58,7 @@
 
 .chat-chat {
     width: 85%;
+    max-width: 85%;
     height: 60%;
     border-radius: 25px;
     background: #292929;

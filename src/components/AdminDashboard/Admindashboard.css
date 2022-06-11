@@ -31,23 +31,19 @@
     flex-direction: row;
 }
 
-.admin-controls {
-    height: 10%;
-    width: 95%;
-    margin-top: 20px;
-    flex-direction: row;
-}
-
-.admin-controls p {
-    margin-left: 50px;
-}
-
 .admin-chat {
     height: 100%;
-    width: 40%;
+    width: 30%;
     margin-left: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: stretch;
     align-items: center;
+}
+
+.admin-wrapper footer {
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    text-align: center;
 }

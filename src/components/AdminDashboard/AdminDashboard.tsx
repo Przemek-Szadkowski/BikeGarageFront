@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import { SimpleBikeEntity } from "types";
 import {Logo} from "../common/Logo/Logo";
 import {Loader} from "../common/Loader/Loader";
@@ -7,6 +7,7 @@ import {AdminCurrentBike} from "./AdminCurrentBike/AdminCurrentBike";
 import {BikeChat} from "../BikeChat/BikeChat";
 
 import './Admindashboard.css';
+import {AdminControlsPanel} from "./AdminControlsPanel/AdminControlsPanel";
 
 export const AdminDashboard = () => {
 
@@ -53,12 +54,7 @@ export const AdminDashboard = () => {
                   <BikeChat chat={currentBike.chat} orderNo={currentBike.orderNo} clientSide={false}/>
                 </div>
               </div>
-              <div className="admin-controls">
-                <p>Nowe zlecenie</p>
-                <p>Archiwum???</p>
-                <p>( Wyszukiwanie??? Z inputem??? )</p>
-                <p>Wyloguj</p>
-              </div>
+                <AdminControlsPanel/>
             </div>
           </div>
   );
