@@ -1,0 +1,36 @@
+.admin-current-form {
+    grid-area: 5/1/6/6;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.admin-current-form button {
+    height:40%;
+    width: 20%;
+    margin-left: 25px;
+    font-size: .9rem;
+}
+
+.admin-current-status {
+    height: 30px;
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 5px;
+    border-radius: 8px;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    color: #371C0B;
+    background-color: rgba(229, 94, 4, .9);
+    border: 2px dotted #999;
+}
+
+.admin-current-status option {
+    color: #371C0B;
+    font-weight: bold;
+}

@@ -1,19 +1,23 @@
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import { SimpleBikeEntity } from "types";
 import {Logo} from "../common/Logo/Logo";
 import {Loader} from "../common/Loader/Loader";
 import {AdminOrders} from "./AdminOrders/AdminOrders";
 import {AdminCurrentBike} from "./AdminCurrentBike/AdminCurrentBike";
 import {BikeChat} from "../BikeChat/BikeChat";
+import {AdminControlsPanel} from "./AdminControlsPanel/AdminControlsPanel";
+import {findNewOrderNumber} from "../../helpers/helpers";
 
 import './Admindashboard.css';
-import {AdminControlsPanel} from "./AdminControlsPanel/AdminControlsPanel";
+import {OrderNoContext} from "../../contexts/orderNo.context";
 
 export const AdminDashboard = () => {
 
-
-    const [isLoading, setIsLoading] = useState(false);
+    const {orderNo, setOrderNo} = useContext(OrderNoContext);
+    const [isLoading, setIsLoading] = useState<Boolean>(false);
+    const [isAddFormVisible, setIsAddFormVisible] = useState<Boolean>(false);
     const [bikes, setBikes] = useState<SimpleBikeEntity[]>([]);
+    // const [newOrderNo, setNewOrderNo] = useState<string | null>(null);
     const [currentBike, setCurrentBike] = useState<SimpleBikeEntity>({
         id: '',
         orderNo: '',
@@ -40,6 +44,11 @@ export const AdminDashboard = () => {
         })();
     }, []);
 
+    useEffect(() => {
+            const newOrderNumber = findNewOrderNumber(bikes.length);
+            // setNewOrderNo(newOrderNumber);
+            setOrderNo(newOrderNumber);
+    }, [bikes]);
 
   return (
           <div className="admin-wrapper">
@@ -49,7 +58,9 @@ export const AdminDashboard = () => {
             </div>
             <div className="admin-main">
               <div className="admin-current">
-                  {isLoading ? <Loader/> : <AdminCurrentBike currentBike={currentBike} setCurrentBike={setCurrentBike} setBikes={setBikes}/>}
+                  {isLoading
+                      ? <Loader/>
+                      : <AdminCurrentBike currentBike={currentBike} setCurrentBike={setCurrentBike} setBikes={setBikes}/>}
                 <div className="admin-chat">
                   <BikeChat chat={currentBike.chat} orderNo={currentBike.orderNo} clientSide={false}/>
                 </div>

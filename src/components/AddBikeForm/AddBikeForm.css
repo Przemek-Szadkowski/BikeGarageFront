@@ -1,0 +1,93 @@
+.add-bike {
+    width: 100%;
+    height: 100vh;
+    background-color: #0B0B0C;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.add-form-wrapper {
+    width: 80%;
+    height: 65vh;
+    padding: 20px 30px;
+    border-radius: 25px;
+    background: #1e1e1f;
+    box-shadow: inset 18px 18px 16px #1a1a1b,
+    inset -18px -18px 16px #222223;
+}
+
+.add-form {
+    width: 100%;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.add-form-inputs {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+}
+
+.add-form-bike, .add-form-owner {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-end;
+    padding: 0 20px;
+}
+
+.add-form-inputs label {
+    width: 100%;
+    height: 8%;
+    display: flex;
+    justify-content: stretch;
+    align-items: center;
+    text-transform: uppercase;
+    font-size: .9rem;
+}
+
+.add-form-inputs input, .add-form-inputs textarea {
+    width: 100%;
+    height: 100%;
+    margin: 5px 0 5px 20px;
+    color: #E55E04;
+    text-shadow: 2px 2px 0 #0B0B0C;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 50px;
+    border-style: none;
+    background: #505053;
+    box-shadow: inset 8px 8px 16px #3a3a3d,
+    inset -8px -8px 16px #666669;
+}
+
+.add-form-inputs textarea {
+    resize: none;
+    padding: 5px 20px;
+}
+
+.add-form-inputs .textArea-label {
+    height: 100px;
+    display: flex;
+    align-items: center;
+}
+
+.add-form-buttons {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.add-form-buttons button {
+    height: 70%;
+}

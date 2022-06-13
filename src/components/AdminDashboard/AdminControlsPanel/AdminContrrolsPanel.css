@@ -1,0 +1,41 @@
+.admin-controls {
+    height: 10%;
+    width: 100%;
+    margin-top: 20px;
+    flex-direction: row;
+    border-radius: 25px;
+    background: #1e1e1f;
+    box-shadow: inset 18px 18px 16px #1a1a1b,
+    inset -18px -18px 16px #222223;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.admin-controls button {
+    height: 45%;
+    width: 20%;
+    font-size: .8rem;
+    margin-left: 35px;
+}
+
+.admin-controls button:last-of-type {
+    margin-left: auto;
+    margin-right: 35px;
+    color: #ad8165;
+    border-color: #ad8165;
+    box-shadow: inset 7px 7px 15px #353538,
+    inset -7px -7px 15px #333334;
+}
+
+.link {
+    height: 45px;
+    width: 20%;
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 40px;
+    margin-left: 45px;
+    border: 2px solid #13A6ED;
+    text-decoration: none;
+    text-align: center;
+}

@@ -7,7 +7,7 @@
     align-items: center;
 }
 
-.admin-aside, .admin-main, .admin-current, .admin-controls {
+.admin-aside, .admin-main, .admin-current {
     height: 95vh;
     border-radius: 25px;
     display: flex;

@@ -3,9 +3,9 @@ import {Footer} from "../Footer/Footer";
 import {MessageEntity} from 'types';
 import {OrderNoContext} from "../../contexts/orderNo.context";
 import {Loader} from "../common/Loader/Loader";
+import {BikeChatLine} from "./BikeChatLine/BikeChatLine";
 
 import './BikeChat.css';
-import {BikeChatLine} from "./BikeChatLine/BikeChatLine";
 
 interface Props {
     // why any? only this type is correct? MessageEntity does work?
@@ -19,9 +19,9 @@ export const BikeChat = (props: Props) => {
     const chatForm = useRef(null);
 
     const {orderNo} = useContext(OrderNoContext);
-    const [isLoading, setIsLoading] = useState(false);
-    const [textAreaVal, setTextAreaVal] = useState('');
-    const [chatMessages, setChatMessages] = useState(props.chat);
+    const [isLoading, setIsLoading] = useState<Boolean>(false);
+    const [textAreaVal, setTextAreaVal] = useState<string>('');
+    const [chatMessages, setChatMessages] = useState<MessageEntity[] | []>(props.chat);
 
     useEffect(() => {
         (async () => {
