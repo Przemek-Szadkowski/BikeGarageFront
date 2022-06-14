@@ -1,15 +1,17 @@
-import React, {useContext, useState} from "react";
+import React, {SyntheticEvent, useContext, useState} from "react";
+import {NewOrderNoContext} from "../../contexts/newOrderNo.context";
 import {Logo} from "../common/Logo/Logo";
 import {Footer} from "../Footer/Footer";
 import {Btn} from "../common/Btn/Btn";
+import {Loader} from "../common/Loader/Loader";
 
 import './AddBikeForm.css';
-import {OrderNoContext} from "../../contexts/orderNo.context";
 
 
 export const AddBikeForm = () => {
 
-    const {orderNo, setOrderNo} = useContext(OrderNoContext);
+    const {newOrderNo} = useContext(NewOrderNoContext);
+    const [isLoading, setIsLoading] = useState<Boolean>(false);
     const [form, setForm] = useState({
         orderNo: '',
         bikeModel: '',
@@ -20,9 +22,8 @@ export const AddBikeForm = () => {
         surname: '',
         phoneNo: '',
         downPayment: 0.00,
-        status: '',
+        status: 'PRZYJĘTY DO SERWISU',
         chat: [],
-        // status i chat tworzone na backendzie?
     })
 
     const updateForm = (key: string, value: any) => {
@@ -32,19 +33,44 @@ export const AddBikeForm = () => {
         }));
     };
 
+    const handleFormSubmit = async (e: SyntheticEvent) => {
+        e.preventDefault();
+        setIsLoading(true);
+        console.log(form);
+
+        try {
+            const addBike = await fetch(`http://localhost:3001/addBike`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    ...form,
+                    orderNo: newOrderNo,
+                }),
+            });
+
+            const data = await addBike.json();
+
+        } finally {
+            setIsLoading(false);
+        }
+
+    }
+
     return(
         <>
             <div className="add-bike">
                 <Logo/>
                 <div className="add-form-wrapper">
-                    <form className="add-form">
+                    {isLoading ? <Loader/> : <form className="add-form" onSubmit={handleFormSubmit}>
                         <div className="add-form-inputs">
                             <div className="add-form-bike">
                                 <label>
                                     No. <input
                                             type="text"
                                             disabled={true}
-                                            value={orderNo}
+                                            value={newOrderNo}
                                         /><br/>
                                 </label>
                                 <label>
@@ -93,9 +119,8 @@ export const AddBikeForm = () => {
                                 <label>
                                     Zaliczka: <input
                                                 type="number"
-                                                onChange={e => updateForm('downPayment', e.target.value)}
+                                                onChange={e => updateForm('downPayment', Number(e.target.value))}
                                                 onKeyPress={(e) => {
-                                                    // stop making new line on enter in textarea and sendMessage on enter press???
                                                     if(e.key === 'Enter' && !e.shiftKey){
                                                         e.preventDefault();
                                                     }
@@ -111,7 +136,7 @@ export const AddBikeForm = () => {
                             <Btn text="Dodaj"></Btn>
                             <Btn text="Powrót"></Btn>
                         </div>
-                    </form>
+                    </form>}
                 </div>
                 <Footer/>
             </div>

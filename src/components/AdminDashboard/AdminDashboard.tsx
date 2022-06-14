@@ -7,17 +7,15 @@ import {AdminCurrentBike} from "./AdminCurrentBike/AdminCurrentBike";
 import {BikeChat} from "../BikeChat/BikeChat";
 import {AdminControlsPanel} from "./AdminControlsPanel/AdminControlsPanel";
 import {findNewOrderNumber} from "../../helpers/helpers";
+import {NewOrderNoContext} from "../../contexts/newOrderNo.context";
 
 import './Admindashboard.css';
-import {OrderNoContext} from "../../contexts/orderNo.context";
 
 export const AdminDashboard = () => {
 
-    const {orderNo, setOrderNo} = useContext(OrderNoContext);
+    const {setNewOrderNo} = useContext(NewOrderNoContext);
     const [isLoading, setIsLoading] = useState<Boolean>(false);
-    const [isAddFormVisible, setIsAddFormVisible] = useState<Boolean>(false);
     const [bikes, setBikes] = useState<SimpleBikeEntity[]>([]);
-    // const [newOrderNo, setNewOrderNo] = useState<string | null>(null);
     const [currentBike, setCurrentBike] = useState<SimpleBikeEntity>({
         id: '',
         orderNo: '',
@@ -46,8 +44,7 @@ export const AdminDashboard = () => {
 
     useEffect(() => {
             const newOrderNumber = findNewOrderNumber(bikes.length);
-            // setNewOrderNo(newOrderNumber);
-            setOrderNo(newOrderNumber);
+            setNewOrderNo(newOrderNumber);
     }, [bikes]);
 
   return (
