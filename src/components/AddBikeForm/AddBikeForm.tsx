@@ -4,6 +4,7 @@ import {Logo} from "../common/Logo/Logo";
 import {Footer} from "../Footer/Footer";
 import {Btn} from "../common/Btn/Btn";
 import {Loader} from "../common/Loader/Loader";
+import { SimpleBikeEntity } from "types";
 
 import './AddBikeForm.css';
 
@@ -12,7 +13,9 @@ export const AddBikeForm = () => {
 
     const {newOrderNo} = useContext(NewOrderNoContext);
     const [isLoading, setIsLoading] = useState<Boolean>(false);
-    const [form, setForm] = useState({
+    const [isBikeAdded, setIsBikeAdded] = useState<Boolean>(false);
+    const [form, setForm] = useState<SimpleBikeEntity>({
+        id: '',
         orderNo: '',
         bikeModel: '',
         serialNo: '',
@@ -21,7 +24,7 @@ export const AddBikeForm = () => {
         name: '',
         surname: '',
         phoneNo: '',
-        downPayment: 0.00,
+        downPayment: 0,
         status: 'PRZYJĘTY DO SERWISU',
         chat: [],
     })
@@ -52,8 +55,13 @@ export const AddBikeForm = () => {
 
             const data = await addBike.json();
 
+            if(data) setIsBikeAdded(true);
+
         } finally {
-            setIsLoading(false);
+            setTimeout(() => {
+                setIsBikeAdded(false);
+                setIsLoading(false);
+            }, 2000)
         }
 
     }
@@ -63,6 +71,7 @@ export const AddBikeForm = () => {
             <div className="add-bike">
                 <Logo/>
                 <div className="add-form-wrapper">
+                    {isBikeAdded ? <div className="confirm">Is added</div> : null}
                     {isLoading ? <Loader/> : <form className="add-form" onSubmit={handleFormSubmit}>
                         <div className="add-form-inputs">
                             <div className="add-form-bike">
@@ -95,7 +104,7 @@ export const AddBikeForm = () => {
                                 <label>
                                     Data przyjęcia: <input
                                                         type="date"
-                                                        onChange={e => updateForm('dateOfReception', e.target.value)}
+                                                        onChange={e => updateForm('dateOfReception', new Date(e.target.value))}
                                                     /><br/>
                                 </label>
                                 <label>
