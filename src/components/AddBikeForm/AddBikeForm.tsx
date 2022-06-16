@@ -7,10 +7,12 @@ import {Loader} from "../common/Loader/Loader";
 import { SimpleBikeEntity } from "types";
 
 import './AddBikeForm.css';
+import {useNavigate} from "react-router-dom";
 
 
 export const AddBikeForm = () => {
 
+    let navigate = useNavigate();
     const {newOrderNo} = useContext(NewOrderNoContext);
     const [isLoading, setIsLoading] = useState<Boolean>(false);
     const [isBikeAdded, setIsBikeAdded] = useState<Boolean>(false);
@@ -50,6 +52,8 @@ export const AddBikeForm = () => {
                 body: JSON.stringify({
                     ...form,
                     orderNo: newOrderNo,
+                    // to set today date in submit form if input date is not change (when default value is still there)
+                    dateOfReception: form.dateOfReception instanceof Date ? form.dateOfReception : new Date(),
                 }),
             });
 
@@ -58,10 +62,11 @@ export const AddBikeForm = () => {
             if(data) setIsBikeAdded(true);
 
         } finally {
+                setIsLoading(false);
             setTimeout(() => {
                 setIsBikeAdded(false);
-                setIsLoading(false);
-            }, 2000)
+                navigate('/admin/dashboard');
+            }, 1500)
         }
 
     }
@@ -71,7 +76,7 @@ export const AddBikeForm = () => {
             <div className="add-bike">
                 <Logo/>
                 <div className="add-form-wrapper">
-                    {isBikeAdded ? <div className="confirm">Is added</div> : null}
+                    {isBikeAdded ? <div className="confirmSubmit"><p>Bike {form.bikeModel} is added</p></div> : null}
                     {isLoading ? <Loader/> : <form className="add-form" onSubmit={handleFormSubmit}>
                         <div className="add-form-inputs">
                             <div className="add-form-bike">
@@ -104,6 +109,7 @@ export const AddBikeForm = () => {
                                 <label>
                                     Data przyjęcia: <input
                                                         type="date"
+                                                        defaultValue={new Date().toISOString().slice(0, 10)}
                                                         onChange={e => updateForm('dateOfReception', new Date(e.target.value))}
                                                     /><br/>
                                 </label>
@@ -111,12 +117,14 @@ export const AddBikeForm = () => {
                                     Imię: <input
                                             type="text"
                                             onChange={e => updateForm('name', e.target.value)}
+                                            required={true}
                                             /><br/>
                                 </label>
                                 <label>
                                     Nazwisko: <input
                                                 type="text"
                                                 onChange={e => updateForm('surname', e.target.value)}
+                                                required={true}
                                                 /><br/>
                                 </label>
                                 <label>
@@ -128,6 +136,7 @@ export const AddBikeForm = () => {
                                 <label>
                                     Zaliczka: <input
                                                 type="number"
+                                                defaultValue={0}
                                                 onChange={e => updateForm('downPayment', Number(e.target.value))}
                                                 onKeyPress={(e) => {
                                                     if(e.key === 'Enter' && !e.shiftKey){
@@ -143,7 +152,7 @@ export const AddBikeForm = () => {
                         </div>
                         <div className="add-form-buttons">
                             <Btn text="Dodaj"></Btn>
-                            <Btn text="Powrót"></Btn>
+                            <Btn text="Powrót" to="/admin/dashboard"></Btn>
                         </div>
                     </form>}
                 </div>
