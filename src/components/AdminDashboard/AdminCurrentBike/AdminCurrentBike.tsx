@@ -1,7 +1,9 @@
-import React, {ChangeEvent, SyntheticEvent, useEffect, useRef, useState} from "react";
+import React, {ChangeEvent, SyntheticEvent, useContext, useEffect, useRef, useState} from "react";
+import {Link} from "react-router-dom";
 import { SimpleBikeEntity } from "types";
 import {Btn} from "../../common/Btn/Btn";
 import {AdminCurrentBikeSelectForm} from "./AdminCurrentBikeSelectForm/AdminCurrentBikeSelectForm";
+import {EditedBikeContext} from "../../../contexts/editedBike.context";
 
 import './AdminCurrentBike.css';
 
@@ -13,7 +15,12 @@ interface Props {
 
 export const AdminCurrentBike = ({currentBike, setCurrentBike, setBikes}: Props) => {
 
+    const {setEditedBike} = useContext(EditedBikeContext);
     const [selectValue, setSelectValue] = useState<string>(currentBike.status);
+
+    useEffect(() => {
+        setEditedBike(currentBike.orderNo);
+    })
 
     useEffect(() => {
         setSelectValue(currentBike.status);
@@ -34,7 +41,7 @@ export const AdminCurrentBike = ({currentBike, setCurrentBike, setBikes}: Props)
                 <p className="admin-current-phoneNo">☎️ {currentBike.phoneNo}</p>
                 <p className="admin-current-downPayment">Zaliczka: <span>{currentBike.downPayment}</span> zł</p>
                 <div className="editForm">
-                    <Btn text="edytuj"></Btn>
+                    <Link to='/editBike' className="link">Edytuj</Link>
                     <Btn text="usuń"></Btn>
                 </div>
             </div>

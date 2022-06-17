@@ -1,22 +1,35 @@
 import React, {SyntheticEvent, useContext, useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
-import {NewOrderNoContext} from "../../contexts/newOrderNo.context";
 import {EditedBikeContext} from "../../contexts/editedBike.context";
 import {Logo} from "../common/Logo/Logo";
 import {Footer} from "../Footer/Footer";
 import {Loader} from "../common/Loader/Loader";
-import {FormModel} from "./FormModel/FormModel";
+import {FormModel} from "../AddBikeForm/FormModel/FormModel";
 import { SimpleBikeEntity } from "types";
 
-import './AddBikeForm.css';
+import './EditBikeForm.css';
 
 
-export const AddBikeForm = () => {
+export const EditBikeForm = () => {
 
     let navigate = useNavigate();
-    const {newOrderNo} = useContext(NewOrderNoContext);
+    const {editedBike} = useContext(EditedBikeContext);
     const [isLoading, setIsLoading] = useState<Boolean>(false);
-    const [isBikeAdded, setIsBikeAdded] = useState<Boolean>(false);
+    const [isBikeEdited, setIsBikeEdited] = useState<Boolean>(false);
+    const [bike, setBike] = useState<SimpleBikeEntity>({
+        id: '',
+        orderNo: '',
+        name: '',
+        surname: '',
+        bikeModel: '',
+        serialNo: '',
+        dateOfReception: {},
+        phoneNo: '',
+        downPayment: 0.00,
+        status: '',
+        comments: '',
+        chat: [],
+    });
     const [form, setForm] = useState<SimpleBikeEntity>({
         id: '',
         orderNo: '',
@@ -28,12 +41,20 @@ export const AddBikeForm = () => {
         surname: '',
         phoneNo: '',
         downPayment: 0,
-        status: 'PRZYJĘTY DO SERWISU',
+        status: '',
         chat: [],
     });
 
-    // teraz fetchować gdy jest edit bike i zmienić isEdit przy cofnięciu i gdy zakończy fetchowanie
-    // useEffect();
+    useEffect(() => {
+        (async () => {
+            setIsLoading(true);
+            const res = await fetch(`http://localhost:3001/editBike/${editedBike}`);
+            const data = await res.json();
+            setBike(data);
+            setForm(data);
+            setIsLoading(false);
+        })();
+    }, []);
 
     const updateForm = (key: string, value: any) => {
         setForm(form => ({
@@ -45,30 +66,26 @@ export const AddBikeForm = () => {
     const handleFormSubmit = async (e: SyntheticEvent) => {
         e.preventDefault();
         setIsLoading(true);
-        console.log(form);
 
         try {
-            const addBike = await fetch(`http://localhost:3001/addBike`, {
-                method: 'POST',
+            const updatedBike = await fetch(`http://localhost:3001/editBike/${editedBike}`, {
+                method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    ...form,
-                    orderNo: newOrderNo,
-                    // to set today date in submit form if input date is not change (when default value is still there)
-                    dateOfReception: form.dateOfReception instanceof Date ? form.dateOfReception : new Date(),
+                    form,
                 }),
             });
 
-            const data = await addBike.json();
+            const data = await updatedBike.json();
 
-            if(data) setIsBikeAdded(true);
+            if(data) setIsBikeEdited(true);
 
         } finally {
-                setIsLoading(false);
+            setIsLoading(false);
             setTimeout(() => {
-                setIsBikeAdded(false);
+                setIsBikeEdited(false);
                 navigate('/admin/dashboard');
             }, 1500)
         }
@@ -80,8 +97,8 @@ export const AddBikeForm = () => {
             <div className="add-bike">
                 <Logo/>
                 <div className="add-form-wrapper">
-                    {isBikeAdded ? <div className="confirmSubmit"><p>Bike {form.bikeModel} is added</p></div> : null}
-                    {isLoading ? <Loader/> : <FormModel updateForm={updateForm} handleFormSubmit={handleFormSubmit}/>}
+                    {isBikeEdited ? <div className="confirmSubmit"><p>Bike {form.bikeModel} has been edited</p></div> : null}
+                    {isLoading ? <Loader/> : <FormModel bike={bike} updateForm={updateForm} handleFormSubmit={handleFormSubmit}/>}
                 </div>
                 <Footer/>
             </div>

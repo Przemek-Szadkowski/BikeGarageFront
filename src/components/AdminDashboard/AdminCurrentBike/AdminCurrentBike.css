@@ -28,6 +28,17 @@ form {
     /*border: 2px dotted #999;*/
 }
 
+.admin-current-order .link {
+    height: 35px;
+    width: 30%;
+    font-size: 1rem;
+    line-height: 30px;
+    margin-left: 45px;
+    border: 2px solid #13A6ED;
+    text-decoration: none;
+    text-align: center;
+}
+
 .admin-current-order p span {
     margin-right: 15px;
 }
