@@ -14,7 +14,7 @@ export const AdminControlsPanel = () => {
         <>
             <div className="admin-controls">
                 <Link to='/addBike' className="link">Nowe zlecenie</Link>
-                <Link to='/addBike' className="link">Archiwum</Link>
+                <Link to='/archive' className="link">Archiwum</Link>
                 <Btn text="Wyloguj"/>
             </div>
         </>

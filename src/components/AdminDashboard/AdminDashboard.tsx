@@ -16,6 +16,7 @@ export const AdminDashboard = () => {
     const {setNewOrderNo} = useContext(NewOrderNoContext);
     const [isLoading, setIsLoading] = useState<Boolean>(false);
     const [bikes, setBikes] = useState<SimpleBikeEntity[]>([]);
+    const [bikesInArchive, setBikesInArchive] = useState<number>(0);
     const [currentBike, setCurrentBike] = useState<SimpleBikeEntity>({
         id: '',
         orderNo: '',
@@ -36,14 +37,15 @@ export const AdminDashboard = () => {
             setIsLoading(true);
             const res = await fetch(`http://localhost:3001/admin/dashboard`);
             const data = await res.json();
-            setBikes(data);
-            setCurrentBike(data[0]);
+            setBikes(data[0]);
+            setCurrentBike(data[0][0]);
+            setBikesInArchive(data[1][0].records);
             setIsLoading(false);
         })();
     }, []);
 
     useEffect(() => {
-            const newOrderNumber = findNewOrderNumber(bikes.length);
+            const newOrderNumber = findNewOrderNumber(bikes.length + bikesInArchive);
             setNewOrderNo(newOrderNumber);
     }, [bikes]);
 

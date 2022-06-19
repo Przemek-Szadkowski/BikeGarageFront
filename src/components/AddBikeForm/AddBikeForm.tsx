@@ -80,7 +80,7 @@ export const AddBikeForm = () => {
             <div className="add-bike">
                 <Logo/>
                 <div className="add-form-wrapper">
-                    {isBikeAdded ? <div className="confirmSubmit"><p>Bike {form.bikeModel} is added</p></div> : null}
+                    {isBikeAdded ? <div className="confirmSubmit"><p>Rower {form.bikeModel} został dodany</p></div> : null}
                     {isLoading ? <Loader/> : <FormModel updateForm={updateForm} handleFormSubmit={handleFormSubmit}/>}
                 </div>
                 <Footer/>

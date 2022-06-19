@@ -1,5 +1,5 @@
 import React, {ChangeEvent, SyntheticEvent, useContext, useEffect, useRef, useState} from "react";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import { SimpleBikeEntity } from "types";
 import {Btn} from "../../common/Btn/Btn";
 import {AdminCurrentBikeSelectForm} from "./AdminCurrentBikeSelectForm/AdminCurrentBikeSelectForm";
@@ -19,13 +19,33 @@ export const AdminCurrentBike = ({currentBike, setCurrentBike, setBikes}: Props)
     const [selectValue, setSelectValue] = useState<string>(currentBike.status);
 
     useEffect(() => {
-        setEditedBike(currentBike.orderNo);
+            setEditedBike(currentBike.orderNo);
     })
 
     useEffect(() => {
         setSelectValue(currentBike.status);
     }, [currentBike]);
 
+    const deleteOrderAndMoveToArchive = async () => {
+
+        if(!window.confirm(`Czy na pewno chcesz usunąć zlecenie na rower ${currentBike.bikeModel}?`)) {
+            return;
+        } else {
+
+            const res = await fetch(`http://localhost:3001/admin/dashboard/${currentBike.id}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            });
+
+            if([400, 500].includes(res.status)) {
+                const error = await res.json();
+                alert(`Error occurred: ${error.message}`);
+                return;
+            }
+        }
+    }
 
     return (
         <>
@@ -42,7 +62,9 @@ export const AdminCurrentBike = ({currentBike, setCurrentBike, setBikes}: Props)
                 <p className="admin-current-downPayment">Zaliczka: <span>{currentBike.downPayment}</span> zł</p>
                 <div className="editForm">
                     <Link to='/editBike' className="link">Edytuj</Link>
-                    <Btn text="usuń"></Btn>
+                    <form className="deleteForm" onSubmit={deleteOrderAndMoveToArchive}>
+                        <Btn text="usuń"></Btn>
+                    </form>
                 </div>
             </div>
         </>

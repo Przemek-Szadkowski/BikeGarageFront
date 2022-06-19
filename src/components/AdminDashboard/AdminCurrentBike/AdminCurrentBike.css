@@ -33,7 +33,7 @@ form {
     width: 30%;
     font-size: 1rem;
     line-height: 30px;
-    margin-left: 45px;
+    margin-left: 0;
     border: 2px solid #13A6ED;
     text-decoration: none;
     text-align: center;
@@ -152,4 +152,9 @@ p.admin-current-phoneNo {
 
 .editForm button:last-of-type {
     color: #d01a1a;
+}
+
+.editForm .deleteForm {
+    height: auto;
+    width: 80%;
 }

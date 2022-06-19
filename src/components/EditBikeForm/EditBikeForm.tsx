@@ -97,7 +97,7 @@ export const EditBikeForm = () => {
             <div className="add-bike">
                 <Logo/>
                 <div className="add-form-wrapper">
-                    {isBikeEdited ? <div className="confirmSubmit"><p>Bike {form.bikeModel} has been edited</p></div> : null}
+                    {isBikeEdited ? <div className="confirmSubmit"><p>Rower {form.bikeModel} został zaktualizowany</p></div> : null}
                     {isLoading ? <Loader/> : <FormModel bike={bike} updateForm={updateForm} handleFormSubmit={handleFormSubmit}/>}
                 </div>
                 <Footer/>

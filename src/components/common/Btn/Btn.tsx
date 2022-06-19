@@ -8,8 +8,8 @@ interface Props {
     to?: string;
 }
 
-export const Btn = (props: Props) => (
-    props.to
-        ? <Link className="btn" to={props.to}>{props.text}</Link>
-        : <button>{props.text}</button>
+export const Btn = ({text, to}: Props) => (
+    to
+        ? <Link className="btn" to={to}>{text}</Link>
+        : <button>{text}</button>
 );

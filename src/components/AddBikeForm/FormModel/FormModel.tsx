@@ -97,7 +97,7 @@ export const FormModel = ({updateForm, handleFormSubmit, bike}: Props) => {
                     </div>
                 </div>
                 <div className="add-form-buttons">
-                    <Btn text="Dodaj"></Btn>
+                    <Btn text={bike ? "Zaktualizuj" : "Dodaj"}></Btn>
                     <Btn text="Powrót" to="/admin/dashboard"></Btn>
                 </div>
             </form>

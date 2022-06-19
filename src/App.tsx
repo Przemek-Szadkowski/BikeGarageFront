@@ -6,6 +6,7 @@ import {Route, Routes} from "react-router-dom";
 import {BikeInfo} from "./components/BikeInfo/BikeInfo";
 import {AddBikeForm} from "./components/AddBikeForm/AddBikeForm";
 import {EditBikeForm} from "./components/EditBikeForm/EditBikeForm";
+import {Archive} from "./components/Archive/Archive";
 
 import {OrderNoContext} from './contexts/orderNo.context';
 import {NewOrderNoContext} from './contexts/newOrderNo.context';
@@ -27,6 +28,7 @@ export const App = () => {
                         <Route path="/admin/dashboard" element={<AdminDashboard/>}/>
                         <Route path="/addBike" element={<AddBikeForm/>}/>
                         <Route path="/editBike" element={<EditBikeForm/>}/>
+                        <Route path="/archive" element={<Archive/>}/>
                     </Routes>
             </EditedBikeContext.Provider>
         </NewOrderNoContext.Provider>

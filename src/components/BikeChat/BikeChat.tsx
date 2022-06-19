@@ -8,7 +8,6 @@ import {BikeChatLine} from "./BikeChatLine/BikeChatLine";
 import './BikeChat.css';
 
 interface Props {
-    // why any? only this type is correct? MessageEntity does work?
     chat: MessageEntity[];
     clientSide: boolean;
     orderNo?: string;
@@ -29,7 +28,6 @@ export const BikeChat = (props: Props) => {
         })();
     }, [props.chat]);
 
-
     const sendMessage = async (e: SyntheticEvent) => {
         e.preventDefault();
         setIsLoading(true);
@@ -42,7 +40,7 @@ export const BikeChat = (props: Props) => {
                 },
                 body: JSON.stringify({
                     isClientAsk: props.clientSide ? 1 : 0,
-                    isNew: 1,
+                    isNew: props.clientSide ? 1 : 0,
                     textAreaVal,
                     orderNo,
                 }),
