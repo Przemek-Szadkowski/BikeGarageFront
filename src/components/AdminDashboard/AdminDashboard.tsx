@@ -49,6 +49,15 @@ export const AdminDashboard = () => {
             setNewOrderNo(newOrderNumber);
     }, [bikes]);
 
+    // to fetch messages when click on next order will change currentbike
+    useEffect(() => {
+        (async () => {
+            const res = await fetch(`http://localhost:3001/admin/dashboard`);
+            const data = await res.json();
+            setBikes(data[0]);
+        })();
+    }, [currentBike]);
+
   return (
           <div className="admin-wrapper">
             <div className="admin-aside">

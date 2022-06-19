@@ -20,7 +20,7 @@ export const AdminCurrentBike = ({currentBike, setCurrentBike, setBikes}: Props)
 
     useEffect(() => {
             setEditedBike(currentBike.orderNo);
-    })
+    }, [])
 
     useEffect(() => {
         setSelectValue(currentBike.status);

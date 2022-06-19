@@ -7,6 +7,7 @@ import {BikeChatLine} from "./BikeChatLine/BikeChatLine";
 
 import './BikeChat.css';
 
+
 interface Props {
     chat: MessageEntity[];
     clientSide: boolean;
@@ -24,6 +25,7 @@ export const BikeChat = (props: Props) => {
 
     useEffect(() => {
         (async () => {
+            // props.chat.map(chatLine => chatLine.isNew = 0);
             setChatMessages(props.chat);
         })();
     }, [props.chat]);
@@ -40,7 +42,7 @@ export const BikeChat = (props: Props) => {
                 },
                 body: JSON.stringify({
                     isClientAsk: props.clientSide ? 1 : 0,
-                    isNew: props.clientSide ? 1 : 0,
+                    isNew: 1,
                     textAreaVal,
                     orderNo,
                 }),
