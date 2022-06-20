@@ -1,7 +1,8 @@
-import React from "react";
+import React, {useContext, useEffect, useState} from "react";
 import { SimpleBikeEntity } from "types";
 
 import './AdminOrder.css';
+
 
 interface Props {
     bikeInfo: SimpleBikeEntity;
@@ -9,6 +10,7 @@ interface Props {
 }
 
 export const AdminOrder = ({bikeInfo, setCurrentBike}: Props) => {
+
     return (
         <>
             <div className="order-bike" onClick={() => setCurrentBike(bikeInfo)}>
@@ -17,7 +19,6 @@ export const AdminOrder = ({bikeInfo, setCurrentBike}: Props) => {
                 <p className="order-model">{bikeInfo.bikeModel}</p>
                 <p className="order-owner">{bikeInfo.name} {bikeInfo.surname}</p>
                 <p className="order-status">{bikeInfo.status}</p>
-                {/*<p>{bikeInfo.chat.some(chatLine => chatLine.isNew === 1) ? 'NEW' : ''}</p>*/}
                 <div className={bikeInfo.chat.some(chatLine => chatLine.isNew === 1) ? 'newMsg' : 'oldMsg'}>✉︎</div>
             </div>
         </>
