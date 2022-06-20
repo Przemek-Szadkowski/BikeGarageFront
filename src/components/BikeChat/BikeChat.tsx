@@ -1,6 +1,7 @@
 import React, {SyntheticEvent, useContext, useEffect, useRef, useState} from "react";
 import {Footer} from "../Footer/Footer";
 import {MessageEntity} from 'types';
+import { SimpleBikeEntity } from "types";
 import {OrderNoContext} from "../../contexts/orderNo.context";
 import {Loader} from "../common/Loader/Loader";
 import {BikeChatLine} from "./BikeChatLine/BikeChatLine";
@@ -42,7 +43,7 @@ export const BikeChat = (props: Props) => {
                 },
                 body: JSON.stringify({
                     isClientAsk: props.clientSide ? 1 : 0,
-                    isNew: 1,
+                    isNew: props.clientSide ? 1 : 0,
                     textAreaVal,
                     orderNo,
                 }),

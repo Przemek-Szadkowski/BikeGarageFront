@@ -52,7 +52,7 @@ export const AdminDashboard = () => {
     // to fetch messages when click on next order will change currentbike
     useEffect(() => {
         (async () => {
-            const res = await fetch(`http://localhost:3001/admin/dashboard`);
+            const res = await fetch(`http://localhost:3001/admin/dashboard/update`);
             const data = await res.json();
             setBikes(data[0]);
         })();
