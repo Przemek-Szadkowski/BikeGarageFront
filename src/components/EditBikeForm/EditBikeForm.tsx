@@ -7,8 +7,6 @@ import {Loader} from "../common/Loader/Loader";
 import {FormModel} from "../AddBikeForm/FormModel/FormModel";
 import { SimpleBikeEntity } from "types";
 
-import './EditBikeForm.css';
-
 
 export const EditBikeForm = () => {
 
