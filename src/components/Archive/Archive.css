@@ -23,6 +23,7 @@
     background: #282828;
     box-shadow: inset 18px 18px 36px #1e1e1e,
     inset -18px -18px 36px #343434;
+
     /*prevent from showing scrollbar*/
     overflow: scroll;
     -ms-overflow-style: none; /* IE and Edge */

@@ -1,14 +1,14 @@
 import React, {useEffect, useState} from "react";
+import { SimpleBikeEntity } from "types";
 import {Btn} from "../common/Btn/Btn";
 import {Loader} from "../common/Loader/Loader";
-import { SimpleBikeEntity } from "types";
 
 import './Archive.css';
 
 export const Archive = () => {
 
     const [archive, setArchive] = useState<SimpleBikeEntity[]>([]);
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState<boolean>(false);
 
     useEffect(() => {
         (async () => {

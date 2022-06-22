@@ -1,9 +1,9 @@
-import React, {ChangeEvent, SyntheticEvent, useContext, useEffect, useRef, useState} from "react";
-import {Link, useNavigate} from "react-router-dom";
+import React, { useContext, useEffect, useState} from "react";
+import {Link} from "react-router-dom";
 import { SimpleBikeEntity } from "types";
+import {EditedBikeContext} from "../../../contexts/editedBike.context";
 import {Btn} from "../../common/Btn/Btn";
 import {AdminCurrentBikeSelectForm} from "./AdminCurrentBikeSelectForm/AdminCurrentBikeSelectForm";
-import {EditedBikeContext} from "../../../contexts/editedBike.context";
 
 import './AdminCurrentBike.css';
 
@@ -20,7 +20,7 @@ export const AdminCurrentBike = ({currentBike, setCurrentBike, setBikes}: Props)
 
     useEffect(() => {
             setEditedBike(currentBike.orderNo);
-    }, [])
+    })
 
     useEffect(() => {
         setSelectValue(currentBike.status);

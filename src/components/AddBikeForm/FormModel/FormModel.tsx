@@ -1,7 +1,7 @@
 import React, {SyntheticEvent, useContext} from "react";
-import {Btn} from "../../common/Btn/Btn";
-import {NewOrderNoContext} from "../../../contexts/newOrderNo.context";
 import { SimpleBikeEntity } from "types";
+import {NewOrderNoContext} from "../../../contexts/newOrderNo.context";
+import {Btn} from "../../common/Btn/Btn";
 
 interface Props {
     updateForm: (key: string, value: any) => void;

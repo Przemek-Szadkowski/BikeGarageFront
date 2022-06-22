@@ -1,11 +1,11 @@
 import React, {SyntheticEvent, useContext, useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
+import { SimpleBikeEntity } from "types";
 import {EditedBikeContext} from "../../contexts/editedBike.context";
 import {Logo} from "../common/Logo/Logo";
 import {Footer} from "../Footer/Footer";
 import {Loader} from "../common/Loader/Loader";
 import {FormModel} from "../AddBikeForm/FormModel/FormModel";
-import { SimpleBikeEntity } from "types";
 
 
 export const EditBikeForm = () => {
@@ -38,7 +38,7 @@ export const EditBikeForm = () => {
         name: '',
         surname: '',
         phoneNo: '',
-        downPayment: 0,
+        downPayment: 0.00,
         status: '',
         chat: [],
     });
@@ -62,7 +62,9 @@ export const EditBikeForm = () => {
     };
 
     const handleFormSubmit = async (e: SyntheticEvent) => {
+
         e.preventDefault();
+
         setIsLoading(true);
 
         try {
@@ -81,11 +83,14 @@ export const EditBikeForm = () => {
             if(data) setIsBikeEdited(true);
 
         } finally {
+
             setIsLoading(false);
+
             setTimeout(() => {
                 setIsBikeEdited(false);
                 navigate('/admin/dashboard');
             }, 1500)
+
         }
 
     }

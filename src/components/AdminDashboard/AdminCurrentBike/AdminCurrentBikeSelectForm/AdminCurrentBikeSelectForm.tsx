@@ -17,11 +17,12 @@ const optionsValues = ['PRZYJĘTY DO SERWISU', 'OCZEKUJĄCY NA NAPRAWĘ', 'OCZEK
 
 export const AdminCurrentBikeSelectForm = ({selectValue, currentBike, setSelectValue, setCurrentBike, setBikes}: Props) => {
 
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState<boolean>(false);
 
     const selectStatus = useRef<any>(null);
 
     const handleSelectSubmit = async (e: SyntheticEvent) => {
+
         e.preventDefault();
 
         try {
@@ -40,10 +41,13 @@ export const AdminCurrentBikeSelectForm = ({selectValue, currentBike, setSelectV
             const {bikeAfterUpdate, bikesAfterUpdate} = await res.json();
 
             setCurrentBike(bikeAfterUpdate);
+
             setBikes(bikesAfterUpdate);
 
         } finally {
+
             setIsLoading(false);
+
         }
     };
 
@@ -51,8 +55,6 @@ export const AdminCurrentBikeSelectForm = ({selectValue, currentBike, setSelectV
         <>
             <form
                 className="admin-current-form"
-                action=""
-                // onChange={handleSelectChange}
                 onSubmit={handleSelectSubmit}
             >
                 {isLoading ? <Loader/> : <select

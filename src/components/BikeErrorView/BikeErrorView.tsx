@@ -4,7 +4,6 @@ import {OrderNoContext} from "../../contexts/orderNo.context";
 import {Logo} from "../common/Logo/Logo";
 
 import './BikeErrorView.css';
-import {Btn} from "../common/Btn/Btn";
 
 export const BikeErrorView = () => {
 

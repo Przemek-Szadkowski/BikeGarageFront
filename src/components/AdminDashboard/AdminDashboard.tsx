@@ -1,5 +1,6 @@
 import React, {useContext, useEffect, useState} from "react";
 import { SimpleBikeEntity } from "types";
+import {NewOrderNoContext} from "../../contexts/newOrderNo.context";
 import {Logo} from "../common/Logo/Logo";
 import {Loader} from "../common/Loader/Loader";
 import {AdminOrders} from "./AdminOrders/AdminOrders";
@@ -7,7 +8,6 @@ import {AdminCurrentBike} from "./AdminCurrentBike/AdminCurrentBike";
 import {BikeChat} from "../BikeChat/BikeChat";
 import {AdminControlsPanel} from "./AdminControlsPanel/AdminControlsPanel";
 import {findNewOrderNumber} from "../../helpers/helpers";
-import {NewOrderNoContext} from "../../contexts/newOrderNo.context";
 
 import './Admindashboard.css';
 
@@ -70,7 +70,7 @@ export const AdminDashboard = () => {
                       ? <Loader/>
                       : <AdminCurrentBike currentBike={currentBike} setCurrentBike={setCurrentBike} setBikes={setBikes}/>}
                 <div className="admin-chat">
-                  <BikeChat chat={currentBike.chat} orderNo={currentBike.orderNo} clientSide={false}/>
+                  <BikeChat chat={currentBike.chat} orderNumber={currentBike.orderNo} clientSide={false}/>
                 </div>
               </div>
                 <AdminControlsPanel/>

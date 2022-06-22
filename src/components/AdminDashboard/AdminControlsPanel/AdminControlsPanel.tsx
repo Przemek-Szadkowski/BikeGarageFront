@@ -1,14 +1,10 @@
-import React, {useContext} from "react";
+import React from "react";
 import {Link} from "react-router-dom";
-import {NewOrderNoContext} from "../../../contexts/newOrderNo.context";
 import {Btn} from "../../common/Btn/Btn";
 
 import './AdminContrrolsPanel.css';
 
-
 export const AdminControlsPanel = () => {
-
-    const {newOrderNo} = useContext(NewOrderNoContext);
 
     return (
         <>

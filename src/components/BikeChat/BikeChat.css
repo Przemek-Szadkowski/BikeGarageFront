@@ -68,6 +68,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: stretch;
+
     /*prevent from showing scrollbar*/
     overflow: scroll;
     -ms-overflow-style: none; /* IE and Edge */
@@ -81,8 +82,7 @@
 .send-btn {
     height: 20%;
     width: 60%;
-    margin: 0 auto;
-    margin-top: 10px;
+    margin: 10px auto 0;
     font-size: .7rem;
     padding: 5px;
     transition: .5s;

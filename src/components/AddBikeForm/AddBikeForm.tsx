@@ -1,15 +1,13 @@
-import React, {SyntheticEvent, useContext, useEffect, useState} from "react";
+import React, {SyntheticEvent, useContext, useState} from "react";
 import {useNavigate} from "react-router-dom";
+import { SimpleBikeEntity } from "types";
 import {NewOrderNoContext} from "../../contexts/newOrderNo.context";
-import {EditedBikeContext} from "../../contexts/editedBike.context";
 import {Logo} from "../common/Logo/Logo";
 import {Footer} from "../Footer/Footer";
 import {Loader} from "../common/Loader/Loader";
 import {FormModel} from "./FormModel/FormModel";
-import { SimpleBikeEntity } from "types";
 
 import './AddBikeForm.css';
-
 
 export const AddBikeForm = () => {
 
@@ -32,20 +30,20 @@ export const AddBikeForm = () => {
         chat: [],
     });
 
-    // teraz fetchować gdy jest edit bike i zmienić isEdit przy cofnięciu i gdy zakończy fetchowanie
-    // useEffect();
-
     const updateForm = (key: string, value: any) => {
+
         setForm(form => ({
             ...form,
             [key]: value,
         }));
+
     };
 
     const handleFormSubmit = async (e: SyntheticEvent) => {
+
         e.preventDefault();
+
         setIsLoading(true);
-        console.log(form);
 
         try {
             const addBike = await fetch(`http://localhost:3001/addBike`, {

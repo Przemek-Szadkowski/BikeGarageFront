@@ -11,7 +11,7 @@ import './BikeInfo.css';
 export const BikeInfo = () => {
 
     const {orderNo} = useContext(OrderNoContext);
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState<boolean>(false);
     const [bike, setBike] = useState<SimpleBikeEntity>({
         id: '',
         orderNo: '',
@@ -31,7 +31,6 @@ export const BikeInfo = () => {
         (async () => {
             setIsLoading(true);
             const res = await fetch(`http://localhost:3001/bike/${orderNo}`);
-            console.log(`http://localhost:3001/bike/${orderNo}`)
             const data = await res.json();
             setBike(data);
             setIsLoading(false);
@@ -41,9 +40,9 @@ export const BikeInfo = () => {
     if(isLoading) {
         return (
             <>
-            <div className="bike-loader-wrapper">
-                <Loader/>
-            </div>
+                <div className="bike-loader-wrapper">
+                    <Loader/>
+                </div>
             </>
         )
     }

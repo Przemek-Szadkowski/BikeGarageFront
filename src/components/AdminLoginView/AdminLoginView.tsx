@@ -9,11 +9,13 @@ import './AdminLoginView.css';
 export const AdminLoginView = () => {
 
     let navigate = useNavigate();
-    const [loginVal, setLoginVal] = useState('');
-    const [passwordVal, setPasswordVal] = useState('');
+    const [loginVal, setLoginVal] = useState<string>('');
+    const [passwordVal, setPasswordVal] = useState<string>('');
 
     const submitLogin = (e: SyntheticEvent) => {
+
         e.preventDefault();
+
         navigate(`/admin/dashboard`);
     }
 
