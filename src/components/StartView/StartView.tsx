@@ -10,7 +10,7 @@ export const StartView =  () => {
 
     return (
             <main className="start-view">
-                <Link to='/admin' className="link-admin">Admin</Link>
+                <Link to='/admin/dashboard' className="link-admin">Admin</Link>
                 <Logo/>
                    <StartForm/>
                 <Footer/>

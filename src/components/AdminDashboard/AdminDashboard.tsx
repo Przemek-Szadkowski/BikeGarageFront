@@ -3,17 +3,20 @@ import { SimpleBikeEntity } from "types";
 import {NewOrderNoContext} from "../../contexts/newOrderNo.context";
 import {Logo} from "../common/Logo/Logo";
 import {Loader} from "../common/Loader/Loader";
+import {AdminLoginView} from "../AdminLoginView/AdminLoginView";
 import {AdminOrders} from "./AdminOrders/AdminOrders";
 import {AdminCurrentBike} from "./AdminCurrentBike/AdminCurrentBike";
 import {BikeChat} from "../BikeChat/BikeChat";
 import {AdminControlsPanel} from "./AdminControlsPanel/AdminControlsPanel";
 import {findNewOrderNumber} from "../../helpers/helpers";
+import {useToken} from "../../myHooks/useToken";
 
 import './Admindashboard.css';
 
 export const AdminDashboard = () => {
 
     const {setNewOrderNo} = useContext(NewOrderNoContext);
+    const {token, setToken} = useToken();
     const [isLoading, setIsLoading] = useState<Boolean>(false);
     const [bikes, setBikes] = useState<SimpleBikeEntity[]>([]);
     const [bikesInArchive, setBikesInArchive] = useState<number>(0);
@@ -57,6 +60,11 @@ export const AdminDashboard = () => {
             setBikes(data[0]);
         })();
     }, [currentBike]);
+
+
+    if(!token) {
+        return <AdminLoginView setToken={setToken}/>
+    }
 
   return (
           <div className="admin-wrapper">

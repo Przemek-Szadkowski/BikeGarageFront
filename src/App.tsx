@@ -13,6 +13,7 @@ import {NewOrderNoContext} from './contexts/newOrderNo.context';
 import {EditedBikeContext} from './contexts/editedBike.context';
 
 export const App = () => {
+
   const [orderNo, setOrderNo] = useState('');
   const [newOrderNo, setNewOrderNo] = useState('');
   const [editedBike, setEditedBike] = useState('');
@@ -24,7 +25,7 @@ export const App = () => {
                     <Routes>
                         <Route path="/" element={<StartView/>}/>
                         <Route path="/bike/:orderNo" element={<BikeInfo/>}/>
-                        <Route path="/admin" element={<AdminLoginView/>}/>
+                        {/*<Route path="/admin" element={<AdminLoginView/>}/>*/}
                         <Route path="/admin/dashboard" element={<AdminDashboard/>}/>
                         <Route path="/addBike" element={<AddBikeForm/>}/>
                         <Route path="/editBike" element={<EditBikeForm/>}/>
