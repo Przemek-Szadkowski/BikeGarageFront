@@ -36,7 +36,7 @@
 
 .archive-bike {
     width: 95%;
-    height: 10%;
+    height: 120px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -47,7 +47,6 @@
     background: #1c1c1c;
     box-shadow: inset 18px 18px 36px #222222,
     inset -18px -18px 36px #222222;
-    overflow: hidden;
     transition: .5s;
 }
 .archive-bike-top {
@@ -73,8 +72,7 @@
 }
 
 .archive-bike:hover {
-    cursor: pointer;
-    height: 150px;
+    height: 130px;
 }
 
 p.archive-date {

@@ -1,5 +1,6 @@
 import React, {SyntheticEvent, useRef, useState} from "react";
 import { SimpleBikeEntity } from "types";
+import {apiUrl} from "../../../../config/api";
 import {Btn} from "../../../common/Btn/Btn";
 import {Loader} from "../../../common/Loader/Loader";
 
@@ -27,7 +28,7 @@ export const AdminCurrentBikeSelectForm = ({selectValue, currentBike, setSelectV
 
         try {
             setIsLoading(true);
-            const res = await fetch(`http://localhost:3001/admin/status/${selectStatus.current.value}`, {
+            const res = await fetch(`${apiUrl}/admin/status/${selectStatus.current.value}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',

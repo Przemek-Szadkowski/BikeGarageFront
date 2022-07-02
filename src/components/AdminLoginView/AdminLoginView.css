@@ -38,3 +38,7 @@
     box-shadow: inset 18px 18px 16px #1a1a1b,
     inset -18px -18px 16px #222223;
 }
+
+.error-paragraph {
+    color: #da1111;
+}

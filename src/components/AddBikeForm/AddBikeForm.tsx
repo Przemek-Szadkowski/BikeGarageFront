@@ -2,6 +2,7 @@ import React, {SyntheticEvent, useContext, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import { SimpleBikeEntity } from "types";
 import {NewOrderNoContext} from "../../contexts/newOrderNo.context";
+import {apiUrl} from "../../config/api";
 import {Logo} from "../common/Logo/Logo";
 import {Footer} from "../Footer/Footer";
 import {Loader} from "../common/Loader/Loader";
@@ -46,7 +47,7 @@ export const AddBikeForm = () => {
         setIsLoading(true);
 
         try {
-            const addBike = await fetch(`http://localhost:3001/addBike`, {
+            const addBike = await fetch(`${apiUrl}/addBike`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -71,6 +72,10 @@ export const AddBikeForm = () => {
             }, 1500)
         }
 
+    }
+
+    if(Boolean(sessionStorage.getItem('token') === 'undefined')) {
+        navigate('/');
     }
 
     return(

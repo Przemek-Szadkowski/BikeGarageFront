@@ -1,5 +1,5 @@
 import React, {SyntheticEvent, useState} from "react";
-import {useNavigate} from "react-router-dom";
+import {apiUrl} from "../../config/api";
 import {Logo} from "../common/Logo/Logo";
 import {Btn} from "../common/Btn/Btn";
 import {Footer} from "../Footer/Footer";
@@ -12,20 +12,13 @@ interface Props {
 
 export const AdminLoginView = ({setToken}: Props) => {
 
-    let navigate = useNavigate();
     const [username, setUserName] = useState<string>('');
     const [password, setPassword] = useState<string>('');
-
-    // const submitLogin = (e: SyntheticEvent) => {
-    //
-    //     e.preventDefault();
-    //
-    //     navigate(`/admin/dashboard`);
-    // }
+    const [loginError, setLoginError] = useState<string>('');
 
     const loginUser = async (credentials: object) => {
         try {
-            const res = await fetch(`http://localhost:3001/login`, {
+            const res = await fetch(`${apiUrl}/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -37,7 +30,10 @@ export const AdminLoginView = ({setToken}: Props) => {
 
             const data = await res.json();
 
-            console.log(data);
+            if(data.error) {
+                setLoginError(data.error);
+                return;
+            }
 
             return data;
 
@@ -60,7 +56,7 @@ export const AdminLoginView = ({setToken}: Props) => {
             <div className="admin-login">
                 <Logo/>
                 <form action="" onSubmit={submitLogin}>
-                    <p>Na tym roucie będzie możliwość zalogowania do panelu admina, gdy już będę wiedział, jak to dobrze zrobić :) Póki co kliknij po prostu zaloguj!</p>
+                    {loginError && <p className="error-paragraph">{loginError.toUpperCase()}</p>}
                     <label>
                         Login:
                         <input type="text" value={username} onChange={e => setUserName(e.target.value)}/>

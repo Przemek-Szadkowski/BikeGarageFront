@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 import { SimpleBikeEntity } from "types";
 import {EditedBikeContext} from "../../../contexts/editedBike.context";
+import {apiUrl} from "../../../config/api";
 import {Btn} from "../../common/Btn/Btn";
 import {AdminCurrentBikeSelectForm} from "./AdminCurrentBikeSelectForm/AdminCurrentBikeSelectForm";
 
@@ -32,7 +33,7 @@ export const AdminCurrentBike = ({currentBike, setCurrentBike, setBikes}: Props)
             return;
         } else {
 
-            const res = await fetch(`http://localhost:3001/admin/dashboard/${currentBike.id}`, {
+            const res = await fetch(`${apiUrl}/admin/dashboard/${currentBike.id}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',

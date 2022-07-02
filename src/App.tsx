@@ -25,7 +25,6 @@ export const App = () => {
                     <Routes>
                         <Route path="/" element={<StartView/>}/>
                         <Route path="/bike/:orderNo" element={<BikeInfo/>}/>
-                        {/*<Route path="/admin" element={<AdminLoginView/>}/>*/}
                         <Route path="/admin/dashboard" element={<AdminDashboard/>}/>
                         <Route path="/addBike" element={<AddBikeForm/>}/>
                         <Route path="/editBike" element={<EditBikeForm/>}/>

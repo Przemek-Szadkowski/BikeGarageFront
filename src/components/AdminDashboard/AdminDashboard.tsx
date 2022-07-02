@@ -1,6 +1,7 @@
 import React, {useContext, useEffect, useState} from "react";
 import { SimpleBikeEntity } from "types";
 import {NewOrderNoContext} from "../../contexts/newOrderNo.context";
+import {apiUrl} from "../../config/api";
 import {Logo} from "../common/Logo/Logo";
 import {Loader} from "../common/Loader/Loader";
 import {AdminLoginView} from "../AdminLoginView/AdminLoginView";
@@ -38,7 +39,7 @@ export const AdminDashboard = () => {
     useEffect(() => {
         (async () => {
             setIsLoading(true);
-            const res = await fetch(`http://localhost:3001/admin/dashboard`);
+            const res = await fetch(`${apiUrl}/admin/dashboard`);
             const data = await res.json();
             setBikes(data[0]);
             setCurrentBike(data[0][0]);
@@ -55,7 +56,7 @@ export const AdminDashboard = () => {
     // to fetch messages when click on next order will change currentbike
     useEffect(() => {
         (async () => {
-            const res = await fetch(`http://localhost:3001/admin/dashboard/update`);
+            const res = await fetch(`${apiUrl}/admin/dashboard/update`);
             const data = await res.json();
             setBikes(data[0]);
         })();

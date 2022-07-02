@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from "react";
 import { SimpleBikeEntity } from "types";
+import {apiUrl} from "../../config/api";
+import {useNavigate} from "react-router-dom";
 import {Btn} from "../common/Btn/Btn";
 import {Loader} from "../common/Loader/Loader";
 
@@ -7,18 +9,23 @@ import './Archive.css';
 
 export const Archive = () => {
 
+    let navigate = useNavigate();
     const [archive, setArchive] = useState<SimpleBikeEntity[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
     useEffect(() => {
         (async () => {
             setIsLoading(true);
-            const res = await fetch(`http://localhost:3001/archive`);
+            const res = await fetch(`${apiUrl}/archive`);
             const data = await res.json();
             setArchive(data);
             setIsLoading(false);
         })();
     }, []);
+
+    if(Boolean(sessionStorage.getItem('token') === 'undefined')) {
+        navigate('/');
+    }
 
     return (
         <>

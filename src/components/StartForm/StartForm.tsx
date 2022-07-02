@@ -1,4 +1,4 @@
-import React, {SyntheticEvent, useContext, useState} from "react";
+import React, {SyntheticEvent, useContext, useEffect, useState} from "react";
 import { useNavigate } from 'react-router-dom';
 import {OrderNoContext} from "../../contexts/orderNo.context";
 import {Btn} from "../common/Btn/Btn";
@@ -17,6 +17,10 @@ export const StartForm = () => {
             navigate(`/bike/${inputVal}`);
         }
     }
+
+    useEffect(() => {
+        sessionStorage.clear();
+    }, [])
 
   return (
       <div>

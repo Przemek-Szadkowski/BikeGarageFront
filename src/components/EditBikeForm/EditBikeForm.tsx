@@ -2,11 +2,11 @@ import React, {SyntheticEvent, useContext, useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import { SimpleBikeEntity } from "types";
 import {EditedBikeContext} from "../../contexts/editedBike.context";
+import {apiUrl} from "../../config/api";
 import {Logo} from "../common/Logo/Logo";
 import {Footer} from "../Footer/Footer";
 import {Loader} from "../common/Loader/Loader";
 import {FormModel} from "../AddBikeForm/FormModel/FormModel";
-
 
 export const EditBikeForm = () => {
 
@@ -46,7 +46,7 @@ export const EditBikeForm = () => {
     useEffect(() => {
         (async () => {
             setIsLoading(true);
-            const res = await fetch(`http://localhost:3001/editBike/${editedBike}`);
+            const res = await fetch(`${apiUrl}/editBike/${editedBike}`);
             const data = await res.json();
             setBike(data);
             setForm(data);
@@ -68,7 +68,7 @@ export const EditBikeForm = () => {
         setIsLoading(true);
 
         try {
-            const updatedBike = await fetch(`http://localhost:3001/editBike/${editedBike}`, {
+            const updatedBike = await fetch(`${apiUrl}/editBike/${editedBike}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -93,6 +93,10 @@ export const EditBikeForm = () => {
 
         }
 
+    }
+
+    if(Boolean(sessionStorage.getItem('token') === 'undefined')) {
+        navigate('/');
     }
 
     return(

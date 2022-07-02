@@ -1,6 +1,7 @@
 import React, {SyntheticEvent, useContext, useEffect, useRef, useState} from "react";
 import {MessageEntity} from 'types';
 import {OrderNoContext} from "../../contexts/orderNo.context";
+import {apiUrl} from "../../config/api";
 import {Loader} from "../common/Loader/Loader";
 import {BikeChatLine} from "./BikeChatLine/BikeChatLine";
 import {Footer} from "../Footer/Footer";
@@ -35,7 +36,7 @@ export const BikeChat = ({chat, clientSide, orderNumber}: Props) => {
         setIsLoading(true);
 
         try {
-            const addMessage = await fetch(`http://localhost:3001/bike/${orderNumber ? orderNumber : orderNo}`, {
+            const addMessage = await fetch(`${apiUrl}/bike/${orderNumber ? orderNumber : orderNo}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
