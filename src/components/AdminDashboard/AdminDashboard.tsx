@@ -14,6 +14,21 @@ import {useToken} from "../../myHooks/useToken";
 
 import './Admindashboard.css';
 
+const mockBike = {
+    id: '',
+    orderNo: '',
+    name: '',
+    surname: '',
+    bikeModel: '',
+    serialNo: '',
+    dateOfReception: {},
+    phoneNo: '',
+    downPayment: 0.00,
+    status: '',
+    comments: '',
+    chat: [],
+}
+
 export const AdminDashboard = () => {
 
     const {setNewOrderNo} = useContext(NewOrderNoContext);
@@ -21,20 +36,7 @@ export const AdminDashboard = () => {
     const [isLoading, setIsLoading] = useState<Boolean>(false);
     const [bikes, setBikes] = useState<SimpleBikeEntity[]>([]);
     const [bikesInArchive, setBikesInArchive] = useState<number>(0);
-    const [currentBike, setCurrentBike] = useState<SimpleBikeEntity>({
-        id: '',
-        orderNo: '',
-        name: '',
-        surname: '',
-        bikeModel: '',
-        serialNo: '',
-        dateOfReception: {},
-        phoneNo: '',
-        downPayment: 0.00,
-        status: '',
-        comments: '',
-        chat: [],
-    });
+    const [currentBike, setCurrentBike] = useState<SimpleBikeEntity>(mockBike);
 
     useEffect(() => {
         (async () => {
@@ -42,7 +44,7 @@ export const AdminDashboard = () => {
             const res = await fetch(`${apiUrl}/admin/dashboard`);
             const data = await res.json();
             setBikes(data[0]);
-            setCurrentBike(data[0][0]);
+            data[0][0] ? setCurrentBike(data[0][0]) : setCurrentBike(mockBike);
             setBikesInArchive(data[1][0].records);
             setIsLoading(false);
         })();
