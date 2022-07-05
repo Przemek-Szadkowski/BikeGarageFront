@@ -1,46 +1,120 @@
-# Getting Started with Create React App
+![my idea](my_idea.png)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Bike Garage
 
-## Available Scripts
+**The most important information:**
 
-In the project directory, you can run:
+Live demo https://bikegarage.networkmanager.pl/
 
-### `npm start`
+To see a client view -> type in the input "Numer zlecenia" one of the order's numbers:  
+**30722MM9**,  
+**30722MM11**  
+or **30722MM12**.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+To see an admin view -> click "Admin" link on the main page and log in:  
+**login: admin**  
+**password: test123**
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+This repository contains code of Bike Garage app - front-end.
 
-### `npm test`
+Back-end code you can find here: https://github.com/Przemek-Szadkowski/BikeGarageBack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+_The RetroFabryka website logo is the previous logo of a bicycle service owned by my friend, who gave his full consent to the use of this logo in my projects._
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Table of contents
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [Colors key](#colors-key)
+- [General info](#general-info)
+- [Screenshots](#screenshots)
+- [Technologies](#technologies)
+- [Features](#features)
+- [Inspiration](#inspiration)
+- [Contact](#contact)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Colors-key
 
-### `npm run eject`
+![key to colors](key.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## General info
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The Bike Garage app helps with manage bike repair service. It is a place to store all information related to orders and a tool to simplify contact with clients. This idea was born during visits to my friend's bicycle service - Retrofabryka. Mateusz runs one of the best bicycle services in central Poland (Łask city). He looks after each bike with heart and great knowledge - check google reviews! He has a lot of orders and contact with clients takes a lot of his time. So I came up with the idea to create an application that would simplify his contact with clients and help to control the constantly growing number of orders.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+This is the first time that I have tried to create such an application. I started coding this application at the end of Mega Kurs, trying to use all my knowledge. After the information about the criteria for passing the course was announced, it turned out that I could submit it as a final project.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+This is the first version of my app, so I have many ideas to improve it and fix bugs - look features subsection.
 
-## Learn More
+## Screenshots
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Start view:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![start view](Start_view.jpg)
+
+Client side view:
+
+![client view](Client_view.jpg)
+
+Admin login view:
+
+![admin-login view](Admin_login_view.jpg)
+
+Admin view:
+
+![admin view](Admin_view.jpg)
+
+Archive view:
+
+![archive view](Archive_view.jpg)
+
+## Technologies
+
+- HTML
+- CSS
+- React
+- MySQL
+- Express.js
+
+## Features
+
+Admin View:
+
+![admin view with points](Admin_view_points.jpg)
+
+1. All orders that can be viewed in the scrolling list. After selecting an order, information about it appears in the field of the current order - no 2.
+2. Information about current order.
+3. Order edit button - displaying the edit window:
+
+![edit view](Edit_view.jpg)
+
+4. Delete order button - the order is removed from the list of orders and moved to the archive.
+5. Order status - to select the current status from the drop-down list and its update after pressing the button "Zmień".
+6. Chat window. It displays the sent messages between the client (client view) and admin (admin view). After sending a new message from the client, an envelope icon is displayed next to a given order on the list of orders. This icon disappears when you reply to the message and component will rerender - when you click on another order:
+
+![view with new message](View_with_new_message.jpg)
+
+7. Order adding button - displaying the same window as when the edit window is visible.
+8. Button displaying the archive with deleted orders.
+
+### TODO LIST:
+
+This is my first attempt to create any login system, so I am aware that this part is primarily for correction. Same as RWD, which I didn't implement at all - I wanted to focus on the application.
+
+- RWD,
+- authorization and authentication,
+- search bars for admin to filter current orders and archive,
+- add email or sms info for client, when bike is ready to collect,
+- authorization for clients (password needed to log in, not only order number),
+- rerender orders list when admin is sending back message to client (turn off new message icon).
+
+## Status
+
+Project is: \_in progress
+
+## Inspiration
+
+Project inspired by my friend Mateusz - owner of bike service RetroFarbyka in Łask city.
+
+## Contact
+
+Created by [przemoszadkowski@o2.pl](mailto:przemoszadkowski@o2.pl) - feel free to contact me!

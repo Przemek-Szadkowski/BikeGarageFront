@@ -1,0 +1,22 @@
+.btn, button, .link  {
+    width: 30%;
+    height: 55px;
+    color: #E55E04;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-color: #E55E04;
+    border-radius: 42px;
+    background: #1b1b1c;
+    box-shadow: inset 7px 7px 15px #232325,
+    inset -7px -7px 15px #2a2a2c;
+    transition: .5s;
+}
+
+.btn:hover, button:hover, .link:hover {
+    cursor: pointer;
+    border-radius: 42px;
+    transform: scale(1.03);
+    background: #2b2b2d;
+    color: #13A6ED;
+}

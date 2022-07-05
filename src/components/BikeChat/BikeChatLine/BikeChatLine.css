@@ -1,0 +1,9 @@
+.chat-chat p {
+    padding: 10px 30px;
+    word-wrap: break-word;
+}
+
+.client-ask {
+    color: #666669;
+    margin-bottom: 5px;
+}

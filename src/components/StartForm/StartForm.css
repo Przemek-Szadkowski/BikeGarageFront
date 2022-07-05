@@ -1,0 +1,32 @@
+.main-form {
+    width: 60vw;
+    height: 550px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.main-form label {
+    font-size: 1.8rem;
+    margin-bottom: 110px;
+}
+
+.main-form input {
+    width: 30vw;
+    height: 60px;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    color: #E55E04;
+    text-shadow: 2px 2px 0 #0B0B0C;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 50px;
+    border-style: none;
+    background: #1e1e1f;
+    box-shadow: inset 18px 18px 16px #1a1a1b,
+    inset -18px -18px 16px #222223;
+}

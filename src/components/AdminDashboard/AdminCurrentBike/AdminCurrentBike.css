@@ -1,0 +1,159 @@
+form {
+    width: 60%;
+    height: 100%;
+}
+
+.admin-current-order {
+    height: 100%;
+    width: 70%;
+    border-radius: 25px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(49, 49, 51, .4);
+}
+
+.admin-current-order p {
+    color: #ad8165;
+    padding: 5px;
+    border-radius: 25px;
+    font-weight: bold;
+    letter-spacing: .1rem;
+    font-size: 1.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.admin-current-order .link {
+    height: 35px;
+    width: 30%;
+    font-size: 1rem;
+    line-height: 30px;
+    margin-left: 0;
+    border: 2px solid #13A6ED;
+    text-decoration: none;
+    text-align: center;
+}
+
+.admin-current-order p span {
+    margin-right: 15px;
+}
+
+.admin-current-order .admin-current-orderNo {
+    height: 35%;
+    grid-area: 1/1/2/3;
+    background: #59595d;
+    box-shadow: inset 18px 18px 16px #2d2d2f,
+    inset -18px -18px 16px #313133;
+}
+
+.admin-current-orderNo {
+    width: 300px;
+}
+
+.admin-current-bikeModel {
+    grid-area: 2/1/3/6;
+    text-transform: uppercase;
+    border: 2px dotted #999;
+}
+
+p.admin-current-bikeModel {
+    font-size: 1.6rem;
+}
+
+.admin-current-serialNo {
+    grid-area: 3/3/4/6;
+    border: 2px dotted #999;
+    align-self: flex-start;
+}
+
+p.admin-current-serialNo {
+    font-size: 1.2rem;
+}
+
+.admin-current-dateOfReception {
+    grid-area: 1/4/2/6;
+    justify-self: flex-end;
+}
+
+p.admin-current-dateOfReception {
+    color: #E55E04;
+}
+
+.admin-current-comments {
+    grid-area: 4/1/5/6;
+    align-self: stretch;
+    background-color: rgba(229, 94, 4 ,.1);
+}
+
+p.admin-current-comments {
+    font-size: 1rem;
+}
+
+.admin-current-name {
+    grid-area: 6/1/7/2;
+    justify-self: flex-start;
+}
+
+p.admin-current-name {
+    color: #13A6ED;
+    text-transform: uppercase;
+    font-size: 1.8rem;
+}
+
+.admin-current-surname {
+    justify-self: flex-start;
+    grid-area: 6/2/7/6;
+}
+
+p.admin-current-surname {
+    color: #13A6ED;
+    text-transform: uppercase;
+    font-size: 1.8rem;
+}
+
+.admin-current-phoneNo {
+    grid-area: 7/1/8/3;
+    justify-self: flex-start;
+    border: 2px dotted #999;
+}
+
+p.admin-current-phoneNo {
+    padding: 8px 20px;
+    color: #13A6ED;
+}
+
+.admin-current-downPayment {
+    grid-area: 7/4/8/6;
+}
+
+.admin-current-downPayment span {
+    margin-left: 10px;
+}
+
+.editForm {
+    width: 100%;
+    height: 100%;
+    grid-area: 8/1/9/6;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.editForm button {
+    height: 30px;
+    font-size: .7rem;
+    margin: 0 20px;
+}
+
+.editForm button:last-of-type {
+    color: #d01a1a;
+}
+
+.editForm .deleteForm {
+    height: auto;
+    width: 80%;
+}
